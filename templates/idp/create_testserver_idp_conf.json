@@ -1,0 +1,94 @@
+{
+    "filename": "IdpTestServerConf",
+    "forceOverWrite": "True",
+    "config":   {
+                    "replace":  [
+                                    {
+                                        "id": "LOCALPATHTOXMLSEC",
+                                        "value": "/usr/local/bin/xmlsec1"
+                                    },
+                                    {
+                                        "id": "TIMEOUT",
+                                        "value": "15"
+                                    },
+                                    {
+                                        "id": "ATTRIBUTERESTRICTIONS",
+                                        "value": "None"
+                                    },
+                                    {
+                                        "id": "ENTITYCATEGORIES",
+                                        "value": "['swamid', 'edugain']"
+                                    },
+                                    {
+                                        "id": "REMOTEMETADATAURL",
+                                        "value": ""
+                                    },
+                                    {
+                                        "id": "REMOTEMETADATACERT",
+                                        "value": ""
+                                    },
+                                    {
+                                        "id": "ATTRIBUTEMAPS",
+                                        "value": "../attributemaps"
+                                    },
+                                    {
+                                        "id": "LOGFILENAME",
+                                        "value": "idp.log"
+                                    },
+                                    {
+                                        "id": "LOGSIZE",
+                                        "value": "500000"
+                                    },
+                                    {
+                                        "id": "LOGBACKUPCOUNT",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "id": "LOGLEVEL",
+                                        "value": "debug"
+                                    }
+                                ],
+                    "section":  [
+                                    {
+                                        "id": "ATTRIBUTESERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "ATTRIBUTEQUERYSERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "SINGLESIGNONSERVICE",
+                                        "show": "True"
+                                    },
+                                    {
+                                        "id": "SINGLELOGOUTSERVICE",
+                                        "show": "True"
+                                    },
+                                    {
+                                        "id": "ARTIFACTRESOLVESERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "ASSERTIONIDREQUESTSERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "MANAGENAMEIDSERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "NAMEIDMAPPINGSERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "LOCALMETADATA",
+                                        "show": "True"
+                                    },
+                                    {
+                                        "id": "REMOTEMETADATA",
+                                        "show": "False"
+                                    }
+                                ]
+                }
+}

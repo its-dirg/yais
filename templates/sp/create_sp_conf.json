@@ -1,0 +1,134 @@
+{
+    "filename": "SpTestConf",
+    "forceOverWrite": "False",
+    "config":   {
+                    "replace":  [
+                                    {
+                                        "id": "LOCALPATHTOXMLSEC",
+                                        "value": "/usr/local/bin/xmlsec1"
+                                    },
+                                    {
+                                        "id": "BASE",
+                                        "value": "http://localhost:8087"
+                                    },
+                                    {
+                                        "id": "ENTITYID",
+                                        "value": "sp"
+                                    },
+                                    {
+                                        "id": "DESCRIPTION",
+                                        "value": "My Idp"
+                                    },
+                                    {
+                                        "id": "ENTITYCATEGORY",
+                                        "value": "COC, RESEARCH_AND_EDUCATION, HEI, SFS_1993_1153, NREN, EU"
+                                    },
+                                    {
+                                        "id": "NAME",
+                                        "value": "My SP"
+                                    },
+                                    {
+                                        "id": "REQUIREDATTRIBUTES",
+                                        "value": "\"surname\", \"givenname\", \"edupersonaffiliation\""
+                                    },
+                                    {
+                                        "id": "OPTIONALATTRIBUTES",
+                                        "value": "\"title\""
+                                    },
+                                    {
+                                        "id": "CERTFILE",
+                                        "value": "pki/mycert.pem"
+                                    },
+                                    {
+                                        "id": "LOCALMETADATAPATH",
+                                        "value": "../sp/sp.xml"
+                                    },
+                                    {
+                                        "id": "REMOTEMETADATAURL",
+                                        "value": ""
+                                    },
+                                    {
+                                        "id": "REMOTEMETADATACERT",
+                                        "value": ""
+                                    },
+                                    {
+                                        "id": "ORGDISPLAYNAME",
+                                        "value": "My organisation"
+                                    },
+                                    {
+                                        "id": "ORGNAME",
+                                        "value": "My organisation"
+                                    },
+                                    {
+                                        "id": "ORGURL",
+                                        "value": "http://www.example.org"
+                                    },
+                                    {
+                                        "id": "CONTACTLIST",
+                                        "value": "{\"contact_type\": \"technical\", \"given_name\": \"Test\", \"sur_name\": \"Tester\",\"email_address\": \"technical@example.com\"},{\"contact_type\": \"support\",\"given_name\": \"Support\",\"email_address\": \"support@example.com\"},"
+                                    },
+                                    {
+                                        "id": "ATTRIBUTEMAPS",
+                                        "value": "../attributemaps"
+                                    },
+                                    {
+                                        "id": "LOGFILENAME",
+                                        "value": "idp.log"
+                                    },
+                                    {
+                                        "id": "LOGSIZE",
+                                        "value": "500000"
+                                    },
+                                    {
+                                        "id": "LOGBACKUPCOUNT",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "id": "LOGLEVEL",
+                                        "value": "debug"
+                                    }
+                                ],
+                    "section":  [
+                                    {
+                                        "id": "ATTRIBUTESERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "ATTRIBUTEQUERYSERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "SINGLESIGNONSERVICE",
+                                        "show": "True"
+                                    },
+                                    {
+                                        "id": "SINGLELOGOUTSERVICE",
+                                        "show": "True"
+                                    },
+                                    {
+                                        "id": "ARTIFACTRESOLVESERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "ASSERTIONIDREQUESTSERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "MANAGENAMEIDSERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "NAMEIDMAPPINGSERVICE",
+                                        "show": "False"
+                                    },
+                                    {
+                                        "id": "LOCALMETADATA",
+                                        "show": "True"
+                                    },
+                                    {
+                                        "id": "REMOTEMETADATA",
+                                        "show": "False"
+                                    }
+                                ]
+                }
+}

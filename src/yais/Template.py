@@ -1,0 +1,79 @@
+#!/usr/bin/env python
+import argparse
+import json
+import os
+
+__author__ = 'haho0032'
+
+
+#Run as create_idp_conf.py << create_idp_conf.json
+
+class TemplateCreator:
+
+    def manipulateLine(self, write, line, conf):
+        for field in conf["config"]["section"]:
+            start = "<" + field["id"] +">"
+            end = "</" + field["id"] +">"
+            testline = line.strip()
+            if field["show"] == "False":
+                if testline == start:
+                    return (False, None)
+                if testline == end:
+                    return (True, None)
+            else:
+                if (testline == start) or (testline == end):
+                    return (True, None)
+        for field in conf["config"]["replace"]:
+            if write:
+                replace = "<" + field["id"] +">"
+                line=line.replace(replace, field["value"])
+        if not write:
+            return (False, None)
+        return (True, line)
+
+    def write_configuration(self, conf, path, templatePath):
+        returnData = {}
+
+        filename = "idp_conf"
+        try:
+            filename = conf["filename"]
+        except:
+            pass
+
+        if "forceOverWrite" not in conf or conf["forceOverWrite"]=="False":
+            nameNotOK = True
+            counter = 0
+            tmp_name = filename
+            while nameNotOK:
+                counter += 1
+                try:
+                    fp=open(tmp_name)
+                    fp.close()
+                    tmp_name = filename + "_" + counter
+                except IOError:
+                    nameNotOK = False
+            name = tmp_name
+        returnData["filename"] = filename + ".py"
+
+        ins = open( templatePath + "idp_conf.template", "r" )
+        fp = open(path + "/" + returnData["filename"], "w")
+        write = True
+        for line in ins:
+            write, line = self.manipulateLine(write, line, conf)
+            if write and line is not None:
+                fp.write(line)
+
+        ins.close()
+        fp.close()
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument(dest="config")
+    args = parser.parse_args()
+
+    json_data=open(args.config)
+    conf = json.load(json_data)
+    json_data.close()
+
+    TemplateCreator().write_configuration(conf, os.path.dirname(os.path.abspath(__file__)),
+                                          "../../templates/idp/")

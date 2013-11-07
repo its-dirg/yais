@@ -1,0 +1,61 @@
+from saml2 import BINDING_HTTP_REDIRECT
+from saml2.saml import NAME_FORMAT_URI
+from saml2.sigver import get_xmlsec_binary
+from saml2.entity_category.edugain import COC
+from saml2.entity_category.swamid import RESEARCH_AND_EDUCATION
+from saml2.entity_category.swamid import HEI
+from saml2.entity_category.swamid import SFS_1993_1153
+from saml2.entity_category.swamid import NREN
+from saml2.entity_category.swamid import EU
+
+
+BASE= "<BASE>"
+
+
+CONFIG = {
+    "entityid": "%s/<ENTITYID>.xml" % BASE,
+    "description": "<DESCRIPTION>",
+    "entity_category": [<ENTITYCATEGORY>],
+    "service": {
+        "sp": {
+            "name": "<NAME>",
+            "endpoints": {
+                "assertion_consumer_service": [BASE],
+                "single_logout_service": [(BASE + "/slo",
+                                            BINDING_HTTP_REDIRECT)],
+            },
+            "required_attributes": [<REQUIREDATTRIBUTES>],
+            "optional_attributes": [<OPTIONALATTRIBUTES>],
+        }
+    },
+    "debug": 1,
+    "key_file": "pki/mykey.pem",
+    "cert_file": "pki/mycert.pem",
+    "attribute_map_dir": "./attributemaps",
+    "metadata": {"local": ["../idp2/idp.xml"]},
+    #"metadata": {"local": ["/Users/haho0032/svn/trunk/pyOpSamlProxy/idp.xml"]},
+    # -- below used by make_metadata --
+    "organization": {
+        "name": "Exempel AB",
+        "display_name": [("Exempel AB", "se"), ("Example Co.", "en")],
+        "url": "http://www.example.com/roland",
+    },
+    "contact_person": [{
+        "given_name":"John",
+        "sur_name": "Smith",
+        "email_address": ["john.smith@example.com"],
+        "contact_type": "technical",
+        },
+    ],
+    "xmlsec_binary": '/usr/local/bin/xmlsec1',
+    "name_form": NAME_FORMAT_URI,
+    "logger": {
+        "rotating": {
+            "filename": "sp.log",
+            "maxBytes": 100000,
+            "backupCount": 5,
+        },
+        "loglevel": "debug",
+    }
+}
+
