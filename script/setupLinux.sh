@@ -1,8 +1,17 @@
 #!/bin/sh
-basePath="/usr/share/dig"
 INSTALLPYOIDC="n"
 INSTALLPYSAML2="n"
 INSTALLBASE="n"
+if [$1 = "-h"]
+then
+    echo "usage: setupLinux.sh install_path"
+fi
+if [ ! -d "$DIRECTORY" ]; then
+  echo $1 is not a directory!
+  echo "usage: setupLinux.sh install_path"
+  exit
+fi
+basePath = $1
 echo "Do you want to install IdPproxy (Y/n):"
 read INSTALLIDPPROXY
 if [ $INSTALLIDPPROXY = "Y" ]
@@ -106,4 +115,25 @@ else
     echo "Skipping IdPproxy."
 fi
 ############################################################
-
+if [ $INSTALLPYSAML2 = "Y" ]
+then
+    echo "Do you want to configure an test IdP and SP? (Y/n):"
+    read CONFIGUREIDPSP
+    if [ CONFIGUREIDPSP = "Y" ]
+    then
+        idpConfFile = "$pysaml2Path/example/idp/yaisIdpConf.py"
+        spConfFile = "$pysaml2Path/example/idp/yaisSpConf.py"
+        spMetadataFile = "$pysaml2Path/example/sp/yaisSp.xml"
+        idpMetadataFile = "$pysaml2Path/example/idp/yaisIdp.xml"
+        setupIdp.py $pysaml2Path /usr/yais/templates/idp/create_testserver_idp_conf.json -M $spMetadataFile
+        setupSp.py $pysaml2Path /usr/yais/templates/sp/create_testclient_sp_conf.json -M idpMetadataFile
+        make_metadata.py $idpConfFile > idpMetadataFile
+        make_metadata.py $spConfFile > spMetadataFile
+        echo "Do you want to start test IdP and SP? (Y/n):"
+        read STARTCONFIGUREIDPSP
+        if [ STARTCONFIGUREIDPSP = "Y" ]
+            `$pysaml2Path/example/idp/idp.py $idpConfFile`
+            `$pysaml2Path/example/sp/sp.py $spConfFile`
+        fi
+    fi
+fi

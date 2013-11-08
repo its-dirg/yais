@@ -1,5 +1,5 @@
 {
-    "filename": "IdpTestServerConf",
+    "filename": "yaisIdpConf",
     "forceOverWrite": "True",
     "config":   {
                     "replace":  [
