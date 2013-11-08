@@ -132,6 +132,7 @@ then
         echo "Do you want to start test IdP and SP? (Y/n):"
         read STARTCONFIGUREIDPSP
         if [ STARTCONFIGUREIDPSP = "Y" ]
+        then
             `$pysaml2Path/example/idp/idp.py $idpConfFile`
             `$pysaml2Path/example/sp/sp.py $spConfFile`
         fi

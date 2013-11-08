@@ -46,7 +46,7 @@ class Reader:
 
             filesCreated = False
             try:
-                fc = open(C_F, "wt")
+                fc = open(C_F, "wt") #Do not work on linux, try with os.open instead.
                 fk = open(K_F, "wt")
 
                 fc.write(crypto.dump_certificate(crypto.FILETYPE_PEM, cert))
