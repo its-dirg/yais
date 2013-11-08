@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import argparse
 import json
 import os
@@ -9,6 +9,10 @@ __author__ = 'haho0032'
 #Run as create_idp_conf.py << create_idp_conf.json
 
 class TemplateCreator:
+
+    def addReplace(self, conf, id, value):
+        conf["config"]["replace"].append({"id": id,"value": value})
+        return conf
 
     def manipulateLine(self, write, line, conf):
         for field in conf["config"]["section"]:
@@ -26,15 +30,18 @@ class TemplateCreator:
         for field in conf["config"]["replace"]:
             if write:
                 replace = "<" + field["id"] +">"
-                line=line.replace(replace, field["value"])
+                filedvalue = field["value"]
+                if filedvalue is None:
+                    filedvalue = ""
+                line=line.replace(replace, filedvalue)
         if not write:
             return (False, None)
         return (True, line)
 
-    def write_configuration(self, conf, path, templatePath):
+    def write_configuration(self, conf, path, template_file):
         returnData = {}
 
-        filename = "idp_conf"
+        filename = "conf"
         try:
             filename = conf["filename"]
         except:
@@ -55,7 +62,7 @@ class TemplateCreator:
             name = tmp_name
         returnData["filename"] = filename + ".py"
 
-        ins = open( templatePath + "idp_conf.template", "r" )
+        ins = open( template_file, "r" )
         fp = open(path + "/" + returnData["filename"], "w")
         write = True
         for line in ins:
@@ -75,5 +82,10 @@ if __name__ == '__main__':
     conf = json.load(json_data)
     json_data.close()
 
-    TemplateCreator().write_configuration(conf, os.path.dirname(os.path.abspath(__file__)),
-                                          "../../templates/idp/")
+    TemplateCreator().write_configuration(conf,
+                                    os.path.dirname(os.path.abspath(__file__))+"/../../test/idp/pysaml2/example/idp2",
+                                    "../../templates/idp/", "idp_conf.template")
+
+    #TemplateCreator().write_configuration(conf,
+    #                                os.path.dirname(os.path.abspath(__file__))+"/../../test/idp/pysaml2/example/sp",
+    #                                "../../templates/sp/", "sp_conf.template")

@@ -21,7 +21,7 @@ else:
 BASE = "<SERVER>"
 
 CONFIG = {
-    "entityid": "%s/<NAME>.xml" % BASE,
+    "entityid": "%s/<ENTITYID>.xml" % BASE,
     "description": "<DESCRIPTION>",
     "service": {
 <ATTRIBUTESERVICE>
@@ -45,7 +45,7 @@ CONFIG = {
         },
 </ATTRIBUTEQUERYSERVICE>
         "idp": {
-            "name": "<NAME>",
+            "name": "<ENTITYID>",
             "endpoints": {
 <SINGLESIGNONSERVICE>
                 "single_sign_on_service": [

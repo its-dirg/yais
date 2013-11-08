@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from saml2 import BINDING_HTTP_REDIRECT
 from saml2.saml import NAME_FORMAT_URI
 from saml2.sigver import get_xmlsec_binary
@@ -8,6 +9,15 @@ from saml2.entity_category.swamid import SFS_1993_1153
 from saml2.entity_category.swamid import NREN
 from saml2.entity_category.swamid import EU
 
+try:
+    from saml2.sigver import get_xmlsec_binary
+except ImportError:
+    get_xmlsec_binary = None
+
+if get_xmlsec_binary:
+    xmlsec_path = get_xmlsec_binary(["/opt/local/bin","/usr/local/bin"])
+else:
+    xmlsec_path = '<LOCALPATHTOXMLSEC>'
 
 BASE= "<BASE>"
 
@@ -20,42 +30,50 @@ CONFIG = {
         "sp": {
             "name": "<NAME>",
             "endpoints": {
+<ASSERTIONCONSUMERSERVICE>
                 "assertion_consumer_service": [BASE],
+</ASSERTIONCONSUMERSERVICE>
+<SINGLELOGOUTSERVICE>
                 "single_logout_service": [(BASE + "/slo",
                                             BINDING_HTTP_REDIRECT)],
+</SINGLELOGOUTSERVICE>
             },
             "required_attributes": [<REQUIREDATTRIBUTES>],
             "optional_attributes": [<OPTIONALATTRIBUTES>],
         }
     },
     "debug": 1,
-    "key_file": "pki/mykey.pem",
-    "cert_file": "pki/mycert.pem",
-    "attribute_map_dir": "./attributemaps",
-    "metadata": {"local": ["../idp2/idp.xml"]},
-    #"metadata": {"local": ["/Users/haho0032/svn/trunk/pyOpSamlProxy/idp.xml"]},
+    "key_file": "<KEYFILE>",
+    "cert_file": "<CERTFILE>",
+    "attribute_map_dir": "<ATTRIBUTEMAPDIR>",
+    "metadata": {
+        <LOCALMETADATA>
+                    "local": ["<LOCALMETADATAPATH>"],
+        </LOCALMETADATA>
+        <REMOTEMETADATA>
+                    "remote": [{
+                        "url":"<REMOTEMETADATAURL>",
+                        "cert":"<REMOTEMETADATACERT>"}]
+        </REMOTEMETADATA>
+    },
     # -- below used by make_metadata --
     "organization": {
-        "name": "Exempel AB",
-        "display_name": [("Exempel AB", "se"), ("Example Co.", "en")],
-        "url": "http://www.example.com/roland",
+        "name": "<ORGANIZATIONNAME>",
+        "display_name": [<ORGANIZATIONDISPLAYNAME>],
+        "url": "<ORGANIZATIONURL>",
     },
-    "contact_person": [{
-        "given_name":"John",
-        "sur_name": "Smith",
-        "email_address": ["john.smith@example.com"],
-        "contact_type": "technical",
-        },
+    "contact_person": [
+        <CONTACTLIST>
     ],
-    "xmlsec_binary": '/usr/local/bin/xmlsec1',
+    "xmlsec_binary": xmlsec_path,
     "name_form": NAME_FORMAT_URI,
     "logger": {
         "rotating": {
-            "filename": "sp.log",
-            "maxBytes": 100000,
-            "backupCount": 5,
+            "filename": "<LOGFILENAME>",
+            "maxBytes": <LOGSIZE>,
+            "backupCount": <LOGBACKUPCOUNT>,
         },
-        "loglevel": "debug",
+        "loglevel": "<LOGLEVEL>",
     }
 }
 

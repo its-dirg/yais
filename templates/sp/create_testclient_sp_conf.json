@@ -1,5 +1,5 @@
 {
-    "filename": "SpTestConf",
+    "filename": "SpTestClientConf",
     "forceOverWrite": "False",
     "config":   {
                     "replace":  [
@@ -8,28 +8,8 @@
                                         "value": "/usr/local/bin/xmlsec1"
                                     },
                                     {
-                                        "id": "LOCALPATHTOXMLSEC",
-                                        "value": "/usr/local/bin/xmlsec1"
-                                    },
-                                    {
-                                        "id": "BASE",
-                                        "value": "http://localhost:8087"
-                                    },
-                                    {
-                                        "id": "ENTITYID",
-                                        "value": "sp"
-                                    },
-                                    {
-                                        "id": "DESCRIPTION",
-                                        "value": "My Idp"
-                                    },
-                                    {
                                         "id": "ENTITYCATEGORY",
                                         "value": "COC, RESEARCH_AND_EDUCATION, HEI, SFS_1993_1153, NREN, EU"
-                                    },
-                                    {
-                                        "id": "NAME",
-                                        "value": "My SP"
                                     },
                                     {
                                         "id": "REQUIREDATTRIBUTES",
@@ -40,20 +20,8 @@
                                         "value": "\"title\""
                                     },
                                     {
-                                        "id": "KEYFILE",
-                                        "value": "pki/mykey.pem"
-                                    },
-                                    {
-                                        "id": "CERTFILE",
-                                        "value": "pki/mycert.pem"
-                                    },
-                                    {
                                         "id": "ATTRIBUTEMAPDIR",
                                         "value": "./attributemaps"
-                                    },
-                                    {
-                                        "id": "LOCALMETADATAPATH",
-                                        "value": "./idp2/idp.xml"
                                     },
                                     {
                                         "id": "REMOTEMETADATAURL",
@@ -62,22 +30,6 @@
                                     {
                                         "id": "REMOTEMETADATACERT",
                                         "value": ""
-                                    },
-                                    {
-                                        "id": "ORGANIZATIONNAME",
-                                        "value": "Exempel AB"
-                                    },
-                                    {
-                                        "id": "ORGANIZATIONDISPLAYNAME",
-                                        "value": "(\"Exempel AB\", \"se\"), (\"Example Co.\", \"en\")"
-                                    },
-                                    {
-                                        "id": "ORGANIZATIONURL",
-                                        "value": "http://www.example.com"
-                                    },
-                                    {
-                                        "id": "CONTACTLIST",
-                                        "value": "{\"contact_type\": \"technical\", \"given_name\": \"Test\", \"sur_name\": \"Tester\",\"email_address\": \"technical@example.com\"},{\"contact_type\": \"support\",\"given_name\": \"Support\",\"email_address\": \"support@example.com\"},"
                                     },
                                     {
                                         "id": "LOGFILENAME",
