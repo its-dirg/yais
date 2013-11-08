@@ -6,7 +6,7 @@ if [$1 = "-h"]
 then
     echo "usage: setupLinux.sh install_path"
 fi
-if [ ! -d "$DIRECTORY" ]; then
+if [ ! -d "$1" ]; then
   echo $1 is not a directory!
   echo "usage: setupLinux.sh install_path"
   exit
