@@ -16,7 +16,7 @@ __author__ = 'haho0032'
 
 
 if __name__ == '__main__':
-    IDP_PATH = "/pysaml2/example/sp"
+    SP_PATH = "/pysaml2/example/sp"
     template_file = "/usr/yais/templates/sp/sp_conf.template"
 
 
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     organisationurl = reader.getOrganisationUrl()
     organisationdisplayname = reader.getOrganisationDisplayNameWithLocal()
     contacts = reader.getContacts()
-    cert_file, key_file = reader.getCertAndPrivateKey(args.baseDir + IDP_PATH)
+    cert_file, key_file = reader.getCertAndPrivateKey(args.baseDir + SP_PATH)
 
     templateCreator = TemplateCreator()
 
