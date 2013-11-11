@@ -3,9 +3,33 @@ yais
 ===========
 Yet antoher install script.
 
-Three scripts is included to simplify installations of the projects pysaml2, IdPproxy and pyoidc.
+This project aims at making it easy to install and configure identity servers and proxies for Raspberry PI enviroments.
 
-Just run the script setupLinux.sh if you want to install the programs on a linux machine.
+The purpose is to make it easy for anyone to get an Raspberry PI test enviroment with Saml IdP:s, SP, OAuh2.0 server and
+Open ID connect server.
 
-The script will also help you setup an Idp as well as Sp for test purposes. You should never use these servers in
-production without consulting an expert.
+The project so far have following scripts:
+
+yaisLinux.sh
+    This script have the potential to install an IdP proxy to social services, an SAML identity provider(IdP) and a SAML
+    service provider(SP). The script will also help you configure an test IdP as well as a test SP.
+
+    The script will give yes and no questions and ask for some metadata information.
+
+    Syntax: yaisLinux.sh install_path
+    Example yaisLinux.sh ~/myinstallation
+
+
+configureSaml.sh
+    You can use this script to configure an test IdP as well as a test SP.
+
+    Syntax:  configureSaml.sh install_path
+    Example: configureSaml.sh ~myinstallation
+
+
+stopIdp.sh
+    Run this script to stop your IdP.
+
+stopSp.sh
+    Run this script to stop your SP.
+

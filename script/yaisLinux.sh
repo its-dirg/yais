@@ -4,11 +4,11 @@ INSTALLPYSAML2="n"
 INSTALLBASE="n"
 if [$1 = "-h"]
 then
-    echo "usage: setupLinux.sh install_path [group]"
+    echo "usage: yaisLinux.sh install_path [group]"
 fi
 if [ ! -d "$1" ]; then
   echo $1 is not a directory!
-  echo "usage: setupLinux.sh install_path [group]"
+  echo "usage: yaisLinux.sh install_path [group]"
   exit
 fi
 basePath = $1
