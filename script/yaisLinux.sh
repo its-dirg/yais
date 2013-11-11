@@ -52,7 +52,7 @@ then
     echo "Installing pyjwkest..."
     pyjwkestPath="$basePath/pyjwkest"
     sudo rm -fr $pyjwkestPath
-    sudo git clone https://github.com/rohe/pyjwkest $pyjwkestPath
+    git clone https://github.com/rohe/pyjwkest $pyjwkestPath
     cd $pyjwkestPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
@@ -65,7 +65,7 @@ then
     echo "Installing pyoidc..."
     pyoidcPath="$basePath/pyoidc"
     sudo rm -fr $pyoidcPath
-    sudo git clone https://github.com/rohe/pyoidc $pyoidcPath
+    git clone https://github.com/rohe/pyoidc $pyoidcPath
     cd $pyoidcPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
@@ -82,7 +82,7 @@ then
     echo "Installing pysaml2..."
     pysaml2Path="$basePath/pysaml2"
     sudo rm -fr $pysaml2Path
-    sudo git clone https://github.com/rohe/pysaml2 $pysaml2Path
+    git clone https://github.com/rohe/pysaml2 $pysaml2Path
     cd $pysaml2Path
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
@@ -102,13 +102,13 @@ then
     echo "Installing IdPproxy..."
     oauthPath="$basePath/python-oauth2"
     sudo rm -fr $oauthPath
-    sudo git clone https://github.com/simplegeo/python-oauth2 $oauthPath
+    git clone https://github.com/simplegeo/python-oauth2 $oauthPath
     cd $oauthPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
     IdPproxyPath="$basePath/IdPproxy"
     sudo rm -fr $IdPproxyPath
-    sudo git clone https://github.com/rohe/IdPproxy $IdPproxyPath
+    git clone https://github.com/rohe/IdPproxy $IdPproxyPath
     cd $IdPproxyPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
@@ -119,24 +119,5 @@ fi
 ############################################################
 if [ $INSTALLPYSAML2 = "Y" ]
 then
-    echo "Do you want to configure an test IdP and SP? (Y/n):"
-    read CONFIGUREIDPSP
-    if [ CONFIGUREIDPSP = "Y" ]
-    then
-        idpConfFile = "$pysaml2Path/example/idp/yaisIdpConf.py"
-        spConfFile = "$pysaml2Path/example/idp/yaisSpConf.py"
-        spMetadataFile = "$pysaml2Path/example/sp/yaisSp.xml"
-        idpMetadataFile = "$pysaml2Path/example/idp/yaisIdp.xml"
-        setupIdp.py $pysaml2Path /usr/yais/templates/idp/create_testserver_idp_conf.json -M $spMetadataFile
-        setupSp.py $pysaml2Path /usr/yais/templates/sp/create_testclient_sp_conf.json -M idpMetadataFile
-        make_metadata.py $idpConfFile > idpMetadataFile
-        make_metadata.py $spConfFile > spMetadataFile
-        echo "Do you want to start test IdP and SP? (Y/n):"
-        read STARTCONFIGUREIDPSP
-        if [ STARTCONFIGUREIDPSP = "Y" ]
-        then
-            `$pysaml2Path/example/idp/idp.py $idpConfFile`
-            `$pysaml2Path/example/sp/sp.py $spConfFile`
-        fi
-    fi
+    configureSaml.sh $basePath
 fi

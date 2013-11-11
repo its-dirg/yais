@@ -13,7 +13,15 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Topic :: Software Development :: Libraries :: Python Modules"],
     install_requires = [],
-    scripts=["script/setupLinux.sh", "script/setupIdp.py", "script/setupSp.py", "script/configureSaml.sh"],
+    scripts=["script/configureSaml.sh"
+             "script/create_key",
+             "script/InstallM2CryptoLinux.sh,
+             "script/setupIdp.py",
+             "script/setupSp.py",
+             "script/stopIdp.sh",
+             "script/stopSp.sh",
+             "script/yaisLinux.sh"
+             ],
     zip_safe=False,
     packages=['yais'],
     data_files=[
