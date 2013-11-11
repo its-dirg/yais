@@ -107,9 +107,11 @@ class Reader:
 
     def getFilePath(self, message, error_message, filePath=None):
         while filePath is None or not exists(filePath):
+            if filePath is not None and not exists(filePath):
+                print error_message + "(" + filePath + ")"
             if filePath is not None:
                 print message
-            filePath = raw_input(error_message)
+            filePath = raw_input(filePath)
         return filePath
 
     def getTwoSmallLetters(self, message, error_message):
