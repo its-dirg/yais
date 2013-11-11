@@ -120,5 +120,5 @@ fi
 ############################################################
 if [ $INSTALLPYSAML2 = "Y" ]
 then
-    `configureSaml.sh $basePath`
+    configureSaml.sh $basePath
 fi
