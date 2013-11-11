@@ -20,9 +20,9 @@ then
   spConfFile="$pysaml2Path/example/sp/sp_conf.py"
   spMetadataFile="$pysaml2Path/example/sp/sp_conf.xml"
   echo "IdP setup"
-  sudo setupIdp.py $basePath /usr/yais/templates/idp/create_testserver_idp_conf.json -M $spMetadataFile
+  setupIdp.py $basePath /usr/yais/templates/idp/create_testserver_idp_conf.json -M $spMetadataFile
   echo "SP setup"
-  sudo setupSp.py $basePath /usr/yais/templates/sp/create_testclient_sp_conf.json -M idpMetadataFile
+  setupSp.py $basePath /usr/yais/templates/sp/create_testclient_sp_conf.json -M idpMetadataFile
   cd "$pysaml2Path/example/idp2"
   make_metadata.py yaisIdpConf.py > yaisIdpConf.xml
   cd "$pysaml2Path/example/sp"
