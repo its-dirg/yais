@@ -51,7 +51,7 @@ then
     echo "______________________________________________________"
     echo "Installing pyjwkest..."
     pyjwkestPath="$basePath/pyjwkest"
-    sudo rm -fr $pyjwkestPath
+    rm -fr $pyjwkestPath
     git clone https://github.com/rohe/pyjwkest $pyjwkestPath
     cd $pyjwkestPath
     echo "Running setup.py (this can take a while)."
@@ -64,7 +64,7 @@ if [ $INSTALLPYOIDC = "Y" ]
 then
     echo "Installing pyoidc..."
     pyoidcPath="$basePath/pyoidc"
-    sudo rm -fr $pyoidcPath
+    rm -fr $pyoidcPath
     git clone https://github.com/rohe/pyoidc $pyoidcPath
     cd $pyoidcPath
     echo "Running setup.py (this can take a while)."
@@ -81,7 +81,7 @@ if [ $INSTALLPYSAML2 = "Y" ]
 then
     echo "Installing pysaml2..."
     pysaml2Path="$basePath/pysaml2"
-    sudo rm -fr $pysaml2Path
+    rm -fr $pysaml2Path
     git clone https://github.com/rohe/pysaml2 $pysaml2Path
     cd $pysaml2Path
     echo "Running setup.py (this can take a while)."
@@ -119,5 +119,5 @@ fi
 ############################################################
 if [ $INSTALLPYSAML2 = "Y" ]
 then
-    configureSaml.sh $basePath
+    `configureSaml.sh $basePath`
 fi
