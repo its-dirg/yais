@@ -9,7 +9,7 @@ if [ ! -d "$1" ]; then
   exit
 fi
 basePath=$1
-pysaml2Path="$1/pysaml2"
+pysaml2Path="$basePath/pysaml2"
 echo "Do you want to configure an test IdP and SP? (Y/n):"
 read CONFIGUREIDPSP
 if [ $CONFIGUREIDPSP = "Y" ]
