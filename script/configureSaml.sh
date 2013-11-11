@@ -22,7 +22,7 @@ then
   echo "IdP setup"
   setupIdp.py $basePath /usr/yais/templates/idp/create_testserver_idp_conf.json -M $spMetadataFile
   echo "SP setup"
-  setupSp.py $basePath /usr/yais/templates/sp/create_testclient_sp_conf.json -M idpMetadataFile
+  setupSp.py $basePath /usr/yais/templates/sp/create_testclient_sp_conf.json -M $idpMetadataFile
   cd "$pysaml2Path/example/idp2"
   make_metadata.py yaisIdpConf.py > yaisIdpConf.xml
   cd "$pysaml2Path/example/sp"
