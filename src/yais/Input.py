@@ -13,7 +13,8 @@ from os.path import exists, join
 class Reader:
 
     def __init__(self):
-        self.logger = create_logger("yais_input.log")
+        pass
+        #self.logger = create_logger("yais_input.log")
 
     def create_self_signed_cert(self, cert_dir):
         CN = raw_input("Input the hostname of the website the certificate is for: ")
