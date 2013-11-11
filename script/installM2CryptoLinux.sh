@@ -24,6 +24,6 @@ tar -xf M2Crypto-*.tar.gz
 rm M2Crypto-*.tar.gz
 cd M2Crypto-*
 echo "$PATCH" | patch -p0
-python setup.py install
+sudo python setup.py install
 cd ..
 rm -fr M2Crypto-*
