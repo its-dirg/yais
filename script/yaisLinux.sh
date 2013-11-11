@@ -11,7 +11,7 @@ if [ ! -d "$1" ]; then
   echo "usage: yaisLinux.sh install_path [group]"
   exit
 fi
-basePath = $1
+basePath=$1
 echo "Do you want to install IdPproxy (Y/n):"
 read INSTALLIDPPROXY
 if [ $INSTALLIDPPROXY = "Y" ]

@@ -26,4 +26,4 @@ cd M2Crypto-*
 echo "$PATCH" | patch -p0
 sudo python setup.py install
 cd ..
-rm -fr M2Crypto-*
+sudo rm -fr M2Crypto-*
