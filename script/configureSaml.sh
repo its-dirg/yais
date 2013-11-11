@@ -31,4 +31,4 @@ then
     `$pysaml2Path/example/idp/idp.py $idpConfFile`
     `$pysaml2Path/example/sp/sp.py $spConfFile`
   fi
-fi       
+fi

@@ -1,0 +1,239 @@
+//idp_testdrv.py -l
+[
+    {
+        "depend": ["authn"],
+        "id": "authn-assertion_id_request",
+        "descr": "AuthnRequest followed by an AssertionIDRequest",
+        "name": "AuthnRequest and then an AssertionIDRequest"
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn-nid_no",
+        "descr": "AuthnRequest using HTTP-redirect",
+        "name": "Basic SAML2 AuthnRequest, no name ID format specified"
+    },
+    {
+        "depend": ["authn"],
+        "id": "nameid-mapping",
+        "name": "Simple NameIDMapping request"
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn-with-name_id_policy",
+        "descr": "AuthnRequest with specific NameIDPolicy",
+        "name": "SAML2 AuthnRequest with specific NameIDPolicy"
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn-authn_query",
+        "descr": "AuthnRequest followed by an AuthnQuery",
+        "name": "AuthnRequest and then an AuthnQuery"
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn-nid_email",
+        "descr": "AuthnRequest using HTTP-redirect",
+        "name": "Basic SAML2 AuthnRequest, email name ID"
+    },
+    {
+        "id": "verify",
+        "descr": "Uses AuthnRequest to check connectivity",
+        "name": "Verify connectivity"
+    },
+    {
+        "depend": ["authn"],
+        "id": "manage_nameid",
+        "name": "Setting the SP provided ID by using ManageNameID"
+    },
+    {
+        "id": "ecp_authn",
+        "descr": "SAML2 AuthnRequest using ECP and PAOS",
+        "name": "SAML2 AuthnRequest using ECP and PAOS"
+    },
+    {
+        "depend": ["verify"],
+        "id": "authn",
+        "descr": "AuthnRequest using HTTP-redirect",
+        "name": "Absolute basic SAML2 AuthnRequest"
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn_endpoint_index-transient",
+        "descr": "",
+        "name": ""
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn-with-name_id_policy_nid-transient",
+        "descr": "AuthnRequest with specific NameIDPolicy",
+        "name": "SAML2 AuthnRequest with specific NameIDPolicy"
+    },
+    {
+        "id": "authn-artifact",
+        "descr": "AuthnRequest using HTTP-redirect and artifact",
+        "name": "SAML2 AuthnRequest using an artifact"
+    },
+    {
+        "depend": ["authn"],
+        "id": "attribute-query",
+        "name": ""
+    },
+    {
+        "depend": ["authn"],
+        "id": "attribute-query-transient",
+        "name": ""
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn-nid_transient-assertion_id_request",
+        "descr": "AuthnRequest followed by an AssertionIDRequest",
+        "name": "AuthnRequest and then an AssertionIDRequest"
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn_endpoint_index",
+        "descr": "",
+        "name": ""
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn-nid_transient",
+        "descr": "AuthnRequest using HTTP-redirect",
+        "name": "Basic SAML2 AuthnRequest, transient name ID"
+    },
+    {
+        "depend": ["authn"],
+        "id": "manage_nameid_nid-transient",
+        "name": "Setting the SP provided ID by using ManageNameID"
+    },
+    {
+        "id": "authn-artifact_nid-transient",
+        "descr": "AuthnRequest using HTTP-redirect and artifact",
+        "name": "SAML2 AuthnRequest expecting artifact response"
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn_specified_endpoint",
+        "descr": "",
+        "name": ""
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn-nid_unspecified",
+        "descr": "AuthnRequest using HTTP-redirect",
+        "name": "Basic SAML2 AuthnRequest, unspecified name ID format"
+    },
+    {
+        "depend": ["authn"],
+        "id": "log-in-out",
+        "descr": "AuthnRequest using HTTP-redirect followed by a logout",
+        "name": "Absolute basic SAML2 log in and out"
+    },
+    {
+        "depend": ["authn"],
+        "id": "authn-post",
+        "descr": "AuthnRequest using HTTP-POST",
+        "name": "Basic SAML2 AuthnRequest using HTTP POST"
+    },
+    {
+        "depend": ["authn-post"],
+        "id": "authn-post-transient",
+        "descr": "AuthnRequest using HTTP-POST",
+        "name": "AuthnRequest using HTTP POST expecting transient NameID"
+    }
+]
+
+//idp_testdrv.py -J target.json 'authn'
+{"status": 1, "tests": [
+    {
+        "status": 1,
+        "id": "check-saml2int-metadata",
+        "name": "Checks that the Metadata follows the Saml2Int profile"
+    },
+    {
+        "status": 1,
+        "id": "check",
+        "name": "Verifies that the IdP supports the needed functionality"
+    },
+    {
+        "status": 1,
+        "id": "check-saml2int-attributes",
+        "name": "Any <saml2:Attribute> elements exchanged via any SAML 2.0 messages, assertions, or metadata MUST contain a NameFormat of urn:oasis:names:tc:SAML:2.0:attrname-format:uri."
+    },
+    {
+        "status": 1,
+        "id": "verify-attribute-name-format",
+        "name": "Verify that the correct attribute name format is used."
+    },
+    {
+        "status": 1,
+        "id": "check",
+        "name": "verify that the correct part was signed."
+    },
+    {
+        "status": 1,
+        "id": "check",
+        "name": "verify that the used signature algorithm was one from an approved set."
+    }
+],
+    "id": "authn"}
+
+//idp_testdrv.py -J target.json 'authn-nid_unspecified'
+{"status": 1, "tests": [
+    {
+        "status": 1,
+        "id": "check-saml2int-metadata",
+        "name": "Checks that the Metadata follows the Saml2Int profile"
+    },
+    {
+        "status": 1,
+        "id": "check",
+        "name": "Verifies that the IdP supports the needed functionality"
+    },
+    {
+        "status": 1,
+        "id": "check-saml2int-attributes",
+        "name": "Any <saml2:Attribute> elements exchanged via any SAML 2.0 messages, assertions, or metadata MUST contain a NameFormat of urn:oasis:names:tc:SAML:2.0:attrname-format:uri."
+    },
+    {
+        "status": 1,
+        "id": "verify-attribute-name-format",
+        "name": "Verify that the correct attribute name format is used."
+    },
+    {
+        "status": 1,
+        "id": "check",
+        "name": "verify that the correct part was signed."
+    },
+    {
+        "status": 1,
+        "id": "check",
+        "name": "verify that the used signature algorithm was one from an approved set."
+    },
+    {
+        "status": 1,
+        "id": "check",
+        "name": ""
+    }
+], "id": "authn-nid_unspecified"}
+
+
+//idp_testdrv.py -J target.json 'authn-nid_unspecified'
+//IdP Servern avstängd.
+{"status": 4, "tests": [
+    {
+        "status": 1,
+        "id": "check-saml2int-metadata",
+        "name": "Checks that the Metadata follows the Saml2Int profile"
+    },
+    {
+        "status": 1,
+        "id": "check",
+        "name": "Verifies that the IdP supports the needed functionality"
+    },
+    {
+        "status": 4,
+        "content": "Traceback (most recent call last):\n  File \"/Users/haho0032/githubFork/saml2test/src/idp_test/__init__.py\", line 316, in run\n    conv.do_sequence(oper)\n  File \"/Users/haho0032/githubFork/saml2test/src/saml2test/tool.py\", line 291, in do_sequence\n    self.do_query()\n  File \"/Users/haho0032/githubFork/saml2test/src/saml2test/tool.py\", line 277, in do_query\n    self.send()\n  File \"/Users/haho0032/githubFork/saml2test/src/idp_test/base.py\", line 83, in send\n    response = self._send(srv)\n  File \"/Users/haho0032/githubFork/saml2test/src/idp_test/base.py\", line 128, in _send\n    res = _client.send(htargs[\"headers\"][0][1], \"GET\")\n  File \"/Library/Python/2.7/site-packages/pysaml2-1.0.4beta-py2.7.egg/saml2/httpbase.py\", line 220, in send\n    raise ConnectionError(\"%s\" % exc)\nConnectionError: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /sso/redirect?SAMLRequest=nVJNT8MwDL3zK6Jcdtra7rNEa9FgQkziY2KFA7c0dVmkLimxO%2BDfk5YBQkI7IOVgW%2B%2FFz8%2Ben73tKrYHh9qapBcNwh4Do2yhzXPSe8gu%2B3HvLD2ZGwzFoqGtuYeXBpCYpxkUvpzwxhlhJWqfyh2gICU2i5trMRyEonaWrLIV%2FyZExwkSERx5MZwtvsILa7DZgduA22sFD%2FfXCd8S1SIIKqtktbVIIg7jWSAVBrXPOFt6kdrIlv43OA4QbeCg0A6UJ6yWCddFHyZjKXMoR3k8KuX4NFbFLJ9E41k5HkbTae6BiA2sDJI0lPBhGI36UeRfFsZiNBWT2RNn68PY59p0Th4dOf8EobjKsnV%2FfbfJug%2F2ugB369EJb6FDRq3vZFszHw8L457PU7%2BdSHSyHLu0bifpeMO24kctO6gAQ5reefq3o1gP%2FObmwU%2BLtDuGVthqubaVVu9sUVX29cKBJC%2BWXAP8HzoagzUoXWooOAvStuXvm0s%2FAA%3D%3D&RelayState=38xwESetEumpMtD3 (Caused by <class 'socket.error'>: [Errno 61] Connection refused)\n",
+        "message": "Exception: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /sso/redirect?SAMLRequest=nVJNT8MwDL3zK6Jcdtra7rNEa9FgQkziY2KFA7c0dVmkLimxO%2BDfk5YBQkI7IOVgW%2B%2FFz8%2Ben73tKrYHh9qapBcNwh4Do2yhzXPSe8gu%2B3HvLD2ZGwzFoqGtuYeXBpCYpxkUvpzwxhlhJWqfyh2gICU2i5trMRyEonaWrLIV%2FyZExwkSERx5MZwtvsILa7DZgduA22sFD%2FfXCd8S1SIIKqtktbVIIg7jWSAVBrXPOFt6kdrIlv43OA4QbeCg0A6UJ6yWCddFHyZjKXMoR3k8KuX4NFbFLJ9E41k5HkbTae6BiA2sDJI0lPBhGI36UeRfFsZiNBWT2RNn68PY59p0Th4dOf8EobjKsnV%2FfbfJug%2F2ugB369EJb6FDRq3vZFszHw8L457PU7%2BdSHSyHLu0bifpeMO24kctO6gAQ5reefq3o1gP%2FObmwU%2BLtDuGVthqubaVVu9sUVX29cKBJC%2BWXAP8HzoagzUoXWooOAvStuXvm0s%2FAA%3D%3D&RelayState=38xwESetEumpMtD3 (Caused by <class 'socket.error'>: [Errno 61] Connection refused)"
+    }
+], "id": "authn-nid_unspecified"}

@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from yais.Log import create_logger
+
 __author__ = 'haho0032'
 import json
 import os
@@ -11,7 +13,7 @@ from os.path import exists, join
 class Reader:
 
     def __init__(self):
-        pass
+        self.logger = create_logger("yais_input.log")
 
     def create_self_signed_cert(self, cert_dir):
         CN = raw_input("Input the hostname of the website the certificate is for: ")
@@ -53,6 +55,7 @@ class Reader:
                 fk.write(crypto.dump_privatekey(crypto.FILETYPE_PEM, k))
                 filesCreated = True
             except Exception as ex:
+                self.logger.error("Certificate cannot be generated! Exception: " + ex.message)
                 print "Certificate cannot be generated!"
                 return None, None
 
