@@ -15,7 +15,7 @@ setup(
     install_requires = [],
     scripts=["script/configureSaml.sh"
              "script/create_key",
-             "script/InstallM2CryptoLinux.sh,
+             "script/InstallM2CryptoLinux.sh",
              "script/setupIdp.py",
              "script/setupSp.py",
              "script/stopIdp.sh",
