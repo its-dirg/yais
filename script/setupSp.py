@@ -75,4 +75,4 @@ if __name__ == '__main__':
 
 
 
-    TemplateCreator().write_configuration(conf, args.baseDir + IDP_PATH, template_file)
+    TemplateCreator().write_configuration(conf, args.baseDir + SP_PATH, template_file)
