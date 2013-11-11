@@ -79,8 +79,9 @@ fi
 echo "______________________________________________________"
 if [ $INSTALLPYSAML2 = "Y" ]
 then
-    echo "Installing pysaml2..."
+    echo "Installing pysaml2"
     pysaml2Path="$basePath/pysaml2"
+    echo " into the $path $pysaml2Path"
     rm -fr $pysaml2Path
     git clone https://github.com/rohe/pysaml2 $pysaml2Path
     cd $pysaml2Path
