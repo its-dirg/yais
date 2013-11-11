@@ -13,7 +13,7 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Topic :: Software Development :: Libraries :: Python Modules"],
     install_requires = [],
-    scripts=["script/setupLinux.sh", "script/setupIdp.py", "script/setupSp.py"],
+    scripts=["script/setupLinux.sh", "script/setupIdp.py", "script/setupSp.py", "script/configureSaml.sh"],
     zip_safe=False,
     packages=['yais'],
     data_files=[
