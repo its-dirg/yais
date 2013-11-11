@@ -45,6 +45,8 @@ then
     sudo easy_install pip
     sudo apt-get install swig
     sudo easy_install mako
+    #sudo apt-get install python-m2crypto
+    installM2CryptoLinux.sh
     ############################################################
     echo "______________________________________________________"
     echo "Installing pyjwkest..."

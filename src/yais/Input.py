@@ -47,17 +47,17 @@ class Reader:
             cert.sign(k, 'sha1')
 
             filesCreated = False
-            #try:
-            fc = open(C_F, "wt") #Do not work on linux, try with os.open instead.
-            fk = open(K_F, "wt")
+            try:
+                fc = open(C_F, "wt") #Do not work on linux, try with os.open instead.
+                fk = open(K_F, "wt")
 
-            fc.write(crypto.dump_certificate(crypto.FILETYPE_PEM, cert))
-            fk.write(crypto.dump_privatekey(crypto.FILETYPE_PEM, k))
-            filesCreated = True
-            #except Exception as ex:
-                #self.logger.error("Certificate cannot be generated! Exception: " + ex.message)
-                #print "Certificate cannot be generated!"
-                #return None, None
+                fc.write(crypto.dump_certificate(crypto.FILETYPE_PEM, cert))
+                fk.write(crypto.dump_privatekey(crypto.FILETYPE_PEM, k))
+                filesCreated = True
+            except Exception as ex:
+                self.logger.error("Certificate cannot be generated! Exception: " + ex.message)
+                print "Certificate cannot be generated for the files " + C_F + " and " + K_F
+                return None, None
 
             try:
                 fc.close()
