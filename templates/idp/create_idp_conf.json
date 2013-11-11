@@ -1,5 +1,5 @@
 {
-    "filename": "sp_conf",
+    "filename": "yaisIdpConf",
     "forceOverWrite": "False",
     "config":   {
                     "replace":  [

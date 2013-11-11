@@ -1,5 +1,5 @@
 {
-    "filename": "SpTestConf",
+    "filename": "sp_conf",
     "forceOverWrite": "False",
     "config":   {
                     "replace":  [
