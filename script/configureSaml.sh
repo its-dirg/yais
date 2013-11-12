@@ -15,8 +15,8 @@ read CONFIGUREIDPSP
 if [ $CONFIGUREIDPSP = "Y" ]
 then
   sudo easy_install pyopenssl
-  idpConfFile="$pysaml2Path/example/idp2/yaisIdpConf.py"
-  idpMetadataFile="$pysaml2Path/example/idp2/yaisIdpConf.xml"
+  idpConfFile="$pysaml2Path/example/idp2/idp_conf.py"
+  idpMetadataFile="$pysaml2Path/example/idp2/idp_conf.xml"
   spConfFile="$pysaml2Path/example/sp/sp_conf.py"
   spMetadataFile="$pysaml2Path/example/sp/sp_conf.xml"
   echo "IdP setup"
@@ -24,7 +24,7 @@ then
   echo "SP setup"
   setupSp.py $basePath /usr/yais/templates/sp/create_testclient_sp_conf.json -M $idpMetadataFile
   cd "$pysaml2Path/example/idp2"
-  make_metadata.py yaisIdpConf.py > yaisIdpConf.xml
+  make_metadata.py idp_conf.py > yaisIdpConf.xml
   cd "$pysaml2Path/example/sp"
   make_metadata.py sp_conf.py > sp_conf.xml
   echo "Do you want to start test IdP and SP? (Y/n):"
@@ -32,8 +32,8 @@ then
   if [ $STARTCONFIGUREIDPSP = "Y" ]
   then
     cd "$pysaml2Path/example/idp2"
-    python idp.py $idpConfFile &
+    nohup python idp.py $idpConfFile &
     cd "$pysaml2Path/example/sp/"
-    python sp.py $spConfFile &
+    nohup python sp.py $spConfFile &
   fi
 fi

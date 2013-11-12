@@ -1,5 +1,5 @@
 {
-    "filename": "yaisIdpConf",
+    "filename": "idp_conf",
     "forceOverWrite": "True",
     "config":   {
                     "replace":  [

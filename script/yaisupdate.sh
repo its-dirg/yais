@@ -1,11 +1,11 @@
  #!/bin/sh
  if [ $1 = "-h" ]
 then
-    echo "usage: update.sh path"
+    echo "usage: yaisupdate.sh path"
 fi
 if [ ! -d "$1" ]; then
   echo "$1 is not a directory!"
-  echo "usage: setupLinux.sh path"
+  echo "usage: yaisupdate.sh path"
   exit
 fi
 if [ -d "$1/pyjwkest" ]; then
