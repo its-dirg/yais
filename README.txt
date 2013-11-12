@@ -17,14 +17,20 @@ yaisLinux.sh
     The script will give yes and no questions and ask for some metadata information.
 
     Syntax: yaisLinux.sh install_path
-    Example yaisLinux.sh ~/myinstallation
+    Example yaisLinux.sh /home/testuser/myinstallation
 
+update.sh
+    Run this script to pyjwkest, pysaml2, pyoidc and/or IdPproxy projects. Only already installed projects will be
+    updated.
+
+    Syntax: yaisLinux.sh install_path
+    Example yaisLinux.sh /home/testuser/myinstallation
 
 configureSaml.sh
     You can use this script to configure an test IdP as well as a test SP.
 
     Syntax:  configureSaml.sh install_path
-    Example: configureSaml.sh ~myinstallation
+    Example: configureSaml.sh /home/testuser/myinstallation
 
 
 stopIdp.sh

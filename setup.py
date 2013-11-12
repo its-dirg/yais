@@ -20,6 +20,7 @@ setup(
              "script/setupSp.py",
              "script/stopIdp.sh",
              "script/stopSp.sh",
+             "script/update.sh",
              "script/yaisLinux.sh"
              ],
     zip_safe=False,
