@@ -10,3 +10,5 @@ if [ ! -d "$1" ]; then
 fi
 cd $1/pysaml2/example/sp
 nohup python sp.py sp_conf &
+nohup python sp.py sp_conf > $1/sp.log &
+cat $1/sp.log

@@ -24,16 +24,14 @@ then
   echo "SP setup"
   setupSp.py $basePath /usr/yais/templates/sp/create_testclient_sp_conf.json -M $idpMetadataFile
   cd "$pysaml2Path/example/idp2"
-  make_metadata.py idp_conf.py > yaisIdpConf.xml
+  make_metadata.py idp_conf.py > idp_conf.xml
   cd "$pysaml2Path/example/sp"
   make_metadata.py sp_conf.py > sp_conf.xml
   echo "Do you want to start test IdP and SP? (Y/n):"
   read STARTCONFIGUREIDPSP
   if [ $STARTCONFIGUREIDPSP = "Y" ]
   then
-    cd "$pysaml2Path/example/idp2"
-    nohup python idp.py $idpConfFile &
-    cd "$pysaml2Path/example/sp/"
-    nohup python sp.py $spConfFile &
+    restartIdp.sh
+    restarSp.sh
   fi
 fi
