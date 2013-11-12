@@ -20,7 +20,7 @@ yaisLinux.sh
     Example yaisLinux.sh /home/testuser/myinstallation
 
 update.sh
-    Run this script to pyjwkest, pysaml2, pyoidc and/or IdPproxy projects. Only already installed projects will be
+    Run this script to update pyjwkest, pysaml2, pyoidc and/or IdPproxy projects. Only already installed projects will be
     updated.
 
     Syntax: yaisLinux.sh install_path
