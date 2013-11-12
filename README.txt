@@ -39,3 +39,26 @@ stopIdp.sh
 stopSp.sh
     Run this script to stop your SP.
 
+startIdp.sh
+    Run this script to start your IdP.
+
+    Syntax: startIdp.sh install_path
+    Example startIdp.sh /home/testuser/myinstallation
+
+startSp.sh
+    Run this script to start your SP.
+
+    Syntax: startSp.sh install_path
+    Example startSp.sh /home/testuser/myinstallation
+
+restartIdp.sh
+    Run this script to stop the IdP server and then start the IdP server again.
+
+    Syntax: startIdp.sh install_path
+    Example startIdp.sh /home/testuser/myinstallation
+
+restartSp.sh
+    Run this script to stop the SP server and then start the SP server again.
+
+    Syntax: startSp.sh install_path
+    Example startSp.sh /home/testuser/myinstallation
