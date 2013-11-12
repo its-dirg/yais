@@ -31,7 +31,7 @@ then
   read STARTCONFIGUREIDPSP
   if [ $STARTCONFIGUREIDPSP = "Y" ]
   then
-    restartIdp.sh
-    restarSp.sh
+    restartIdp.sh $basePath
+    restartSp.sh $basePath
   fi
 fi

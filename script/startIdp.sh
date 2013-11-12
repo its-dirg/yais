@@ -9,5 +9,4 @@ if [ ! -d "$1" ]; then
   exit
 fi
 cd $1/pysaml2/example/idp2
-nohup python idp.py idp_conf > $1/idp.log &
-cat > $1/idp.log
+nohup python idp.py idp_conf > $1/idp.out 2> $1/idp.err < /dev/null &

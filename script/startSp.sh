@@ -9,6 +9,4 @@ if [ ! -d "$1" ]; then
   exit
 fi
 cd $1/pysaml2/example/sp
-nohup python sp.py sp_conf &
-nohup python sp.py sp_conf > $1/sp.log &
-cat $1/sp.log
+nohup python sp.py sp_conf > $1/sp.out 2> $1/sp.err < /dev/null &
