@@ -58,6 +58,10 @@
                                         "show": "True"
                                     },
                                     {
+                                        "id": "DISCOVERYSERVICE",
+                                        "show": "False"
+                                    },
+                                    {
                                         "id": "LOCALMETADATA",
                                         "show": "True"
                                     },

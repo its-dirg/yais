@@ -1,11 +1,11 @@
 #!/bin/sh
 if [ $1 = "-h" ]
 then
-    echo "usage: restartSp.sh path"
+    echo "usage: startSp.sh path"
 fi
 if [ ! -d "$1" ]; then
   echo "$1 is not a directory!"
-  echo "usage: restartSp.sh path"
+  echo "usage: startSp.sh path"
   exit
 fi
 cd $1/pysaml2/example/sp

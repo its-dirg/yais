@@ -37,6 +37,11 @@ CONFIG = {
                 "single_logout_service": [(BASE + "/slo",
                                             BINDING_HTTP_REDIRECT)],
 </SINGLELOGOUTSERVICE>
+<DISCOVERYSERVICE>
+                "discovery_response": [
+                    ("%s/disco" % BASE, BINDING_DISCO)
+                ],
+</DISCOVERYSERVICE>
             },
             "required_attributes": [<REQUIREDATTRIBUTES>],
             "optional_attributes": [<OPTIONALATTRIBUTES>],
