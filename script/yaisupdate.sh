@@ -28,3 +28,13 @@ if [ -d "$1/pysaml2" ]; then
     git pull origin master
     sudo python setup.py install
 fi
+if [ -d "$1/saml2test" ]; then
+    cd "$1/saml2test"
+    git pull origin master
+    sudo python setup.py install
+fi
+if [ -d "$1/saml2testGui" ]; then
+    cd "$1/saml2testGui"
+    git pull origin master
+    sudo python setup.py install
+fi

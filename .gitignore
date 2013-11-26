@@ -33,6 +33,7 @@ test/pysaml2/example/sp/sp.xml
 
 .idea/workspace.xml
 
+<<<<<<< HEAD
 .idea/.name
 
 .idea/encodings.xml
@@ -50,3 +51,38 @@ test/pysaml2/example/sp/sp.xml
 .idea/vcs.xml
 
 .idea/yais.iml
+=======
+.idea/other.xml
+
+.idea/testrunner.xml
+
+.idea/vcs.xml
+
+.idea/yais.iml
+
+.idea/yais.iml
+
+build/lib/yais/Log.py
+
+build/scripts-2.7/configureSaml.sh
+
+build/scripts-2.7/create_key.sh
+
+build/scripts-2.7/installM2CryptoLinux.sh
+
+build/scripts-2.7/restartIdp.sh
+
+build/scripts-2.7/restartSp.sh
+
+build/scripts-2.7/startIdp.sh
+
+build/scripts-2.7/startSp.sh
+
+build/scripts-2.7/stopIdp.sh
+
+build/scripts-2.7/stopSp.sh
+
+build/scripts-2.7/yaisLinux.sh
+
+build/scripts-2.7/yaisupdate.sh
+>>>>>>> db546714d314463e7ca4d0aa6a5ae60ab0d8557c

@@ -10,3 +10,5 @@ if [ ! -d "$1" ]; then
 fi
 cd $1/pysaml2/example/sp
 nohup python sp.py > $1/sp.out 2> $1/sp.err < /dev/null &
+sleep 10
+cat $1/sp.out
