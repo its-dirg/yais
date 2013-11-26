@@ -8,7 +8,7 @@ if [ ! -d "$1" ]; then
   echo "usage: restartSp.sh path"
   exit
 fi
-cd $1/pysaml2/example/sp
-nohup python sp.py > $1/sp.out 2> $1/sp.err < /dev/null &
+cd $1/saml2testGui
+nohup python server.py server_conf > $1/saml2test.out 2> $1/saml2test.err < /dev/null &
 sleep 10
-cat $1/sp.out
+cat $1/saml2test.out
