@@ -32,3 +32,21 @@ test/pysaml2/example/sp/pki/jfjhgf.key
 test/pysaml2/example/sp/sp.xml
 
 .idea/workspace.xml
+
+.idea/.name
+
+.idea/encodings.xml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/other.xml
+
+.idea/scopes/scope_settings.xml
+
+.idea/testrunner.xml
+
+.idea/vcs.xml
+
+.idea/yais.iml
