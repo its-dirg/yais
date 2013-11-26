@@ -1,6 +1,7 @@
 #!/bin/sh
 INSTALLPYOIDC="n"
 INSTALLPYSAML2="n"
+INSTALLSAML2TEST="n"
 INSTALLBASE="n"
 if [$1 = "-h"]
 then
@@ -17,6 +18,13 @@ read INSTALLIDPPROXY
 if [ $INSTALLIDPPROXY = "Y" ]
 then
     INSTALLPYOIDC="Y"
+    INSTALLPYSAML2="Y"
+    INSTALLBASE="Y"
+fi
+echo "Do you want to install saml2test (Y/n):"
+read INSTALLSAML2TEST
+if [ $INSTALLSAML2TEST = "Y" ]
+then
     INSTALLPYSAML2="Y"
     INSTALLBASE="Y"
 fi
@@ -95,6 +103,34 @@ then
     echo "pysaml2 installed"
 else
     echo "Skipping pysaml2."
+fi
+############################################################
+echo "______________________________________________________"
+if [ $INSTALLSAML2TEST = "Y" ]
+then
+    # Install saml2test
+    echo "Installing saml2test"
+    saml2testPath="$basePath/saml2test"
+    echo " into the $path $saml2testPath"
+    sudo rm -fr $saml2testPath
+    git clone https://github.com/rohe/saml2test $saml2testPath
+    cd $saml2testPath
+    echo "Running setup.py (this can take a while)."
+    sudo python setup.py install > /dev/null 2> /dev/null
+
+
+    # Installing saml2testGui
+    saml2testGuiPath="$basePath/saml2testGui"
+    echo " into the $path $saml2testGuiPath"
+    sudo rm -fr $saml2testGuiPath
+    git clone https://github.com/HaToHo/saml2testGui $saml2testGuiPath
+    cd $saml2testGuiPath
+    echo "Running setup.py (this can take a while)."
+    sudo python setup.py install > /dev/null 2> /dev/null
+
+    echo "saml2test installed"
+else
+    echo "Skipping saml2test."
 fi
 ############################################################
 echo "______________________________________________________"
