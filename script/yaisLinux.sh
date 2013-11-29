@@ -123,7 +123,7 @@ then
     saml2testGuiPath="$basePath/saml2testGui"
     echo " into the $path $saml2testGuiPath"
     sudo rm -fr $saml2testGuiPath
-    git clone https://github.com/HaToHo/saml2testGui $saml2testGuiPath
+    git clone https://github.com/its-dirg/saml2testGui $saml2testGuiPath
     cd $saml2testGuiPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
