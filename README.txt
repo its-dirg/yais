@@ -8,6 +8,18 @@ This project aims at making it easy to install and configure identity servers an
 The purpose is to make it easy for anyone to get an Raspberry PI test enviroment with Saml IdP:s, SP, OAuh2.0 server and
 Open ID connect server.
 
+Download the project to your local machine with:
+
+git clone https://github.com/its-dirg/yais
+
+Got to the directory you installed yais.
+
+cd [..]/yais
+
+Install yais with the command:
+
+sudo python setup.py install
+
 The project so far have following scripts:
 
 yaisLinux.sh
