@@ -83,20 +83,6 @@ then
 fi
 ############################################################
 echo "______________________________________________________"
-if [ INSTALLDIRGWEB = "Y" ]
-then
-    echo "Installing dirg-web..."
-    dirgwebPath="$basePath/dirg-util"
-    sudo rm -fr $dirgwebPath
-    git clone https://github.com/its-dirg/dirg-web $pyoidcPath
-    cd $dirgwebPath
-    sudo python setup.py install > /dev/null 2> /dev/null
-    echo "dirg-web installed"
-else
-    echo "Skipping dirg-web."
-fi
-############################################################
-echo "______________________________________________________"
 if [ $INSTALLPYOIDC = "Y" ]
 then
     echo "Installing pyoidc..."
@@ -181,6 +167,20 @@ then
     echo "IdPproxy installed"
 else
     echo "Skipping IdPproxy."
+fi
+############################################################
+echo "______________________________________________________"
+if [ INSTALLDIRGWEB = "Y" ]
+then
+    echo "Installing dirg-web..."
+    dirgwebPath="$basePath/dirg-util"
+    sudo rm -fr $dirgwebPath
+    git clone https://github.com/its-dirg/dirg-web $pyoidcPath
+    cd $dirgwebPath
+    sudo python setup.py install > /dev/null 2> /dev/null
+    echo "dirg-web installed"
+else
+    echo "Skipping dirg-web."
 fi
 ############################################################
 if [ $INSTALLPYSAML2 = "Y" ]
