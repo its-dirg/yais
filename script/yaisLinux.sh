@@ -2,6 +2,7 @@
 INSTALLPYOIDC="n"
 INSTALLPYSAML2="n"
 INSTALLSAML2TEST="n"
+INSTALLDIRGWEB="n"
 INSTALLBASE="n"
 if [$1 = "-h"]
 then
@@ -19,6 +20,13 @@ if [ $INSTALLIDPPROXY = "Y" ]
 then
     INSTALLPYOIDC="Y"
     INSTALLPYSAML2="Y"
+    INSTALLBASE="Y"
+fi
+echo "Do you want to install dirg-web (Y/n):"
+read INSTALLDIRGWEB
+if [ INSTALLDIRGWEB = "Y" ]
+then
+    INSTALLDIRGWEB="Y"
     INSTALLBASE="Y"
 fi
 echo "Do you want to install saml2test (Y/n):"
@@ -48,13 +56,20 @@ then
 fi
 if [ $INSTALLBASE = "Y" ]
 then
+    echo "Installing dirg-util..."
+    dirgutilPath="$basePath/dirg-util"
+    sudo rm -fr $dirgutilPath
+    git clone https://github.com/its-dirg/dirg-util $dirgutilPath
+    cd $dirgutilPath
+    sudo python setup.py install > /dev/null 2> /dev/null
+    echo "dirg-util installed"
     sudo apt-get install python-setuptools
     sudo apt-get install python-dev
     sudo easy_install pip
     sudo apt-get install swig
     sudo easy_install mako
     #sudo apt-get install python-m2crypto
-    installM2CryptoLinux.sh
+    #installM2CryptoLinux.sh
     ############################################################
     echo "______________________________________________________"
     echo "Installing pyjwkest..."
@@ -65,6 +80,20 @@ then
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
     echo "pyjwkest installed"
+fi
+############################################################
+echo "______________________________________________________"
+if [ INSTALLDIRGWEB = "Y" ]
+then
+    echo "Installing dirg-web..."
+    dirgwebPath="$basePath/dirg-util"
+    sudo rm -fr $dirgwebPath
+    git clone https://github.com/its-dirg/dirg-web $pyoidcPath
+    cd $dirgwebPath
+    sudo python setup.py install > /dev/null 2> /dev/null
+    echo "dirg-web installed"
+else
+    echo "Skipping dirg-web."
 fi
 ############################################################
 echo "______________________________________________________"

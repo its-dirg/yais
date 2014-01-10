@@ -38,3 +38,13 @@ if [ -d "$1/saml2testGui" ]; then
     git pull origin master
     sudo python setup.py install
 fi
+if [ -d "$1/dirg-util" ]; then
+    cd "$1/dirg-util"
+    git pull origin master
+    sudo python setup.py install
+fi
+if [ -d "$1/dirg-web" ]; then
+    cd "$1/dirg-web"
+    git pull origin master
+    sudo python setup.py install
+fi
