@@ -26,7 +26,7 @@ echo "Do you want to install dirg-web (Y/n):"
 read INSTALLDIRGWEB
 if [ INSTALLDIRGWEB = "Y" ]
 then
-    INSTALLDIRGWEB="Y"
+    INSTALLPYSAML2="Y"
     INSTALLBASE="Y"
 fi
 echo "Do you want to install saml2test (Y/n):"
