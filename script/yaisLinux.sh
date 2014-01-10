@@ -56,13 +56,6 @@ then
 fi
 if [ $INSTALLBASE = "Y" ]
 then
-    echo "Installing dirg-util..."
-    dirgutilPath="$basePath/dirg-util"
-    sudo rm -fr $dirgutilPath
-    git clone https://github.com/its-dirg/dirg-util $dirgutilPath
-    cd $dirgutilPath
-    sudo python setup.py install > /dev/null 2> /dev/null
-    echo "dirg-util installed"
     sudo apt-get install python-setuptools
     sudo apt-get install python-dev
     sudo easy_install pip
@@ -80,6 +73,15 @@ then
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
     echo "pyjwkest installed"
+    ############################################################
+    echo "______________________________________________________"
+    echo "Installing dirg-util..."
+    dirgutilPath="$basePath/dirg-util"
+    sudo rm -fr $dirgutilPath
+    git clone https://github.com/its-dirg/dirg-util $dirgutilPath
+    cd $dirgutilPath
+    sudo python setup.py install > /dev/null 2> /dev/null
+    echo "dirg-util installed"
 fi
 ############################################################
 echo "______________________________________________________"
