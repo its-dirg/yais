@@ -172,7 +172,7 @@ else
 fi
 ############################################################
 echo "______________________________________________________"
-if [ INSTALLDIRGWEB = "Y" ]
+if [ $INSTALLDIRGWEB = "Y" ]
 then
     echo "Installing dirg-web..."
     dirgwebPath="$basePath/dirg-util"
