@@ -25,7 +25,11 @@ setup(
              "script/stopIdp.sh",
              "script/stopSp.sh",
              "script/yaisupdate.sh",
-             "script/yaisLinux.sh"
+             "script/yaisLinux.sh",
+             "script/startDirgWeb.sh",
+             "script/stopDirgWeb.sh",
+             "script/startSaml2test.sh",
+             "script/stopSaml2test.sh"
              ],
     zip_safe=False,
     packages=['yais'],
