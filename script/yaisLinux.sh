@@ -175,9 +175,9 @@ echo "______________________________________________________"
 if [ $INSTALLDIRGWEB = "Y" ]
 then
     echo "Installing dirg-web..."
-    dirgwebPath="$basePath/dirg-util"
+    dirgwebPath="$basePath/dirg-web"
     sudo rm -fr $dirgwebPath
-    git clone https://github.com/its-dirg/dirg-web $pyoidcPath
+    git clone https://github.com/its-dirg/dirg-web $dirgwebPath
     cd $dirgwebPath
     sudo python setup.py install > /dev/null 2> /dev/null
     echo "dirg-web installed"
