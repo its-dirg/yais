@@ -76,6 +76,8 @@ then
     ############################################################
     echo "______________________________________________________"
     echo "Installing dirg-util..."
+    sudo pip install validate_email
+    sudo pip install pyDNS
     dirgutilPath="$basePath/dirg-util"
     sudo rm -fr $dirgutilPath
     git clone https://github.com/its-dirg/dirg-util $dirgutilPath
