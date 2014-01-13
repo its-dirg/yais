@@ -1,5 +1,5 @@
- #!/bin/sh
- if [ $1 = "-h" ]
+#!/bin/sh
+if [ $1 = "-h" ]
 then
     echo "usage: yaisupdate.sh path"
 fi
