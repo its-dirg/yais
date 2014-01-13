@@ -18,6 +18,7 @@ setup(
              "script/installM2CryptoLinux.sh",
              "script/restartIdp.sh",
              "script/restartSp.sh",
+             "script/restartDirgWeb.sh",
              "script/setupIdp.py",
              "script/setupSp.py",
              "script/startIdp.sh",
