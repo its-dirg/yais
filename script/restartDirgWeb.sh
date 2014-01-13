@@ -10,4 +10,4 @@ if [ ! -d "$1" ]; then
 fi
 stopDirgWeb.sh
 sleep 10
-startDirgWeb.sh
+startDirgWeb.sh /usr/share/dig/projects
