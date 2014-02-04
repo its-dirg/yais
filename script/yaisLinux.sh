@@ -1,4 +1,9 @@
 #!/bin/sh
+#gcc must be installed
+#brew must be installed for mac
+#yum must be installed för RedHat
+#apt-get must be installed för debian
+
 INSTALLPYOIDC="n"
 INSTALLPYSAML2="n"
 INSTALLSAML2TEST="n"
@@ -6,13 +11,20 @@ INSTALLDIRGWEB="n"
 INSTALLBASE="n"
 if [$1 = "-h"]
 then
-    echo "usage: yaisLinux.sh install_path [group]"
+    echo "usage: yaisLinux.sh install_path [os(redhat | mac | debian)]"
 fi
 if [ ! -d "$1" ]; then
   echo $1 is not a directory!
   echo "usage: yaisLinux.sh install_path [group]"
   exit
 fi
+
+os="debian"
+
+if [ "$2" == "redhat" ] || [ "$2" == "mac" ] || [ "$2" == "debian" ] ; then
+    os=$2
+fi
+
 basePath=$1
 echo "Do you want to install IdPproxy (Y/n):"
 read INSTALLIDPPROXY
@@ -56,13 +68,21 @@ then
 fi
 if [ $INSTALLBASE = "Y" ]
 then
-    sudo apt-get install python-setuptools
-    sudo apt-get install python-dev
+    if [ $INSTALLIDPPROXY = "Y" ]
+then
+    if [ $os = "debian" ]
+    then
+        sudo apt-get install python-setuptools
+        sudo apt-get install python-dev
+    fi
+    if [ $os = "redhat" ]
+    then
+        yum install python-setuptools
+        yum install python-devel
+    fi
+    easy_install -U setuptools
     sudo easy_install pip
-    sudo apt-get install swig
     sudo easy_install mako
-    #sudo apt-get install python-m2crypto
-    #installM2CryptoLinux.sh
     ############################################################
     echo "______________________________________________________"
     echo "Installing pyjwkest..."
@@ -90,13 +110,34 @@ echo "______________________________________________________"
 if [ $INSTALLPYOIDC = "Y" ]
 then
     echo "Installing pyoidc..."
+    if [ $os = "debian" ]
+    then
+        sudo apt-get install swig
+        sudo apt-get install python-m2crypto
+        installM2CryptoLinux.sh
+    fi
+    if [ $os = "mac" ]
+        brew install swig
+        sudo easy_install M2Crypto
+    fi
+    if [ $os = "redhat" ]
+    then
+        sudo yum install swig
+        sudo yum install m2crypto
+    fi
+
     pyoidcPath="$basePath/pyoidc"
     sudo rm -fr $pyoidcPath
     git clone https://github.com/rohe/pyoidc $pyoidcPath
     cd $pyoidcPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
-    sudo apt-get install python-ldap
+    if [ $os = "debian" ]
+    then
+        sudo apt-get install python-ldap
+    else
+        sudo pip install python-ldap
+    fi
     sudo pip install python-ldap
     echo "pyoidc installed"
 else
@@ -116,9 +157,18 @@ then
     sudo python setup.py install > /dev/null 2> /dev/null
     sudo easy_install repoze.who
     sudo easy_install ElementTree
-    sudo apt-get install python-dateutil libxmlsec1 xmlsec1 libxmlsec1-openssl libxmlsec1-dev
-    sudo apt-get install libxml2
-    sudo apt-get install libtool
+    if [ $os = "debian" ]
+    then
+        sudo apt-get install python-dateutil libxmlsec1 xmlsec1 libxmlsec1-openssl libxmlsec1-dev
+        sudo apt-get install libxml2
+        sudo apt-get install libtool
+    fi
+    if [ $os = "mac" ]
+        brew install libxmlsec1
+    fi
+    if [ $os = "redhat" ]
+        sudo yum install python-dateutil pyOpenSSL xmlsec1 xmlsec1-devel xmlsec1-openssl xmlsec1-openssl-devel
+    fi
     echo "pysaml2 installed"
 else
     echo "Skipping pysaml2."
