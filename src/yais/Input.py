@@ -165,7 +165,11 @@ class Reader:
         while moreContacts=="Y":
             moreContacts = raw_input("Do you want to add a contact(Y/n): ")
             if moreContacts == "Y":
-                contact_type = raw_input("Type of contact: ")
+                ok_values = ['technical', 'support','administrative', 'billing', 'other']
+                contact_type = None
+                while contact_type not in ok_values:
+                    contact_type = raw_input("Type of contact must be on of technical, support, administrative, billing"
+                                             " or other: ")
                 given_name = raw_input("Given name: ")
                 sur_name = raw_input("Sur name: ")
                 email_address = raw_input("E-mail adress: ")
