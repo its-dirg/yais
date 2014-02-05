@@ -76,8 +76,8 @@ then
     fi
     if [ $os = "redhat" ]
     then
-        yum -y install python-setuptools
-        yum -y install python-devel
+        sudo yum -y install python-setuptools
+        sudo yum -y install python-devel
     fi
     easy_install -U setuptools
     sudo easy_install pip
