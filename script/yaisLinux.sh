@@ -171,12 +171,12 @@ then
     fi
     if [ $os = "redhat" ]
     then
-        #wget http://ftpmirror.gnu.org/libtool/libtool-2.4.2.tar.gz
-        #gunzip -c libtool-2.4.2.tar.gz | tar xvf -
-        #cd libtool-2.4.2
-        #./configure
-        #make
-        #make install
+        wget http://ftpmirror.gnu.org/libtool/libtool-2.4.2.tar.gz
+        gunzip -c libtool-2.4.2.tar.gz | tar xvf -
+        cd libtool-2.4.2
+        sudo ./configure
+        sudo make
+        sudo make install
         #make check
         #cd ..
         #sudo yum -y install libtool-ltdl-devel.x86_64
