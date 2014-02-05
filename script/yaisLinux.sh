@@ -117,6 +117,7 @@ then
         installM2CryptoLinux.sh
     fi
     if [ $os = "mac" ]
+    then
         brew install swig
         sudo easy_install M2Crypto
     fi
@@ -164,9 +165,11 @@ then
         sudo apt-get install libtool
     fi
     if [ $os = "mac" ]
+    then
         brew install libxmlsec1
     fi
     if [ $os = "redhat" ]
+    then
         sudo yum install python-dateutil pyOpenSSL xmlsec1 xmlsec1-devel xmlsec1-openssl xmlsec1-openssl-devel
     fi
     echo "pysaml2 installed"
