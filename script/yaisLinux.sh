@@ -171,6 +171,7 @@ then
     fi
     if [ $os = "redhat" ]
     then
+        sudo yum -y install libtool-ltdl-devel.x86_64
         sudo yum -y install libtool-ltdl-devel
         sudo yum -y install libxml2 libxml2-devel libxslt libxslt-devel
         sudo yum -y install python-dateutil pyOpenSSL openssl openssl-devel
