@@ -68,8 +68,6 @@ then
 fi
 if [ $INSTALLBASE = "Y" ]
 then
-    if [ $INSTALLIDPPROXY = "Y" ]
-then
     if [ $os = "debian" ]
     then
         sudo apt-get install python-setuptools
