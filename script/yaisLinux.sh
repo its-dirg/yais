@@ -79,7 +79,7 @@ then
         sudo yum -y install python-setuptools
         sudo yum -y install python-devel
     fi
-    #sudo easy_install -U setuptools
+    sudo easy_install -U setuptools
     sudo easy_install pip
     sudo easy_install mako
     sudo pip install pycrypto
@@ -179,8 +179,8 @@ then
         make install
         make check
         cd ..
-        sudo yum -y install libtool-ltdl-devel.x86_64
-        sudo yum -y install libtool-ltdl-devel
+        #sudo yum -y install libtool-ltdl-devel.x86_64
+        #sudo yum -y install libtool-ltdl-devel
         sudo yum -y install libxml2 libxml2-devel libxslt libxslt-devel
         sudo yum -y install python-dateutil pyOpenSSL openssl openssl-devel
         sudo yum -y install libxml2
