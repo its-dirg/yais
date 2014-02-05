@@ -48,7 +48,7 @@ then
     INSTALLPYSAML2="Y"
     INSTALLBASE="Y"
 fi
-if [ $INSTALLPYOIDC -ne "Y" ]
+if [ $INSTALLPYOIDC = "n" ]
 then
     echo "Do you want to install pyoidc (Y/n):"
     read INSTALLPYOIDC
@@ -57,7 +57,7 @@ then
         INSTALLBASE="Y"
     fi
 fi
-if [ $INSTALLPYSAML2 -ne "Y" ]
+if [ $INSTALLPYSAML2 = "n" ]
 then
     echo "Do you want to install pysaml2 (Y/n):"
     read INSTALLPYSAML2
