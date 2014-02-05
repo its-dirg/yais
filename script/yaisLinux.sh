@@ -48,7 +48,7 @@ then
     INSTALLPYSAML2="Y"
     INSTALLBASE="Y"
 fi
-if [ $INSTALLPYOIDC != "Y" ]
+if [ $INSTALLPYOIDC -ne "Y" ]
 then
     echo "Do you want to install pyoidc (Y/n):"
     read INSTALLPYOIDC
@@ -57,7 +57,7 @@ then
         INSTALLBASE="Y"
     fi
 fi
-if [ $INSTALLPYSAML2 != "Y" ]
+if [ $INSTALLPYSAML2 -ne "Y" ]
 then
     echo "Do you want to install pysaml2 (Y/n):"
     read INSTALLPYSAML2
@@ -168,7 +168,17 @@ then
     fi
     if [ $os = "redhat" ]
     then
-        sudo yum install python-dateutil pyOpenSSL xmlsec1 xmlsec1-devel xmlsec1-openssl xmlsec1-openssl-devel
+        sudo yum install python-dateutil pyOpenSSL
+        sudo yum install libxml2
+        wget http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.19.tar.gz
+        gunzip -c xmlsec1-1.2.19.tar.gz | tar xvf -
+        cd xmlsec1-1.2.19
+        ./configure --help
+        ./configure [possible options]
+        make
+        make install
+        make check
+        cd ..
     fi
     echo "pysaml2 installed"
 else
