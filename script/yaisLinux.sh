@@ -190,7 +190,7 @@ then
         sudo ./configure
         sudo make
         sudo make install
-        sudo make check
+        #sudo make check
         cd ..
     fi
     echo "pysaml2 installed"
