@@ -79,7 +79,7 @@ then
         sudo yum -y install python-setuptools
         sudo yum -y install python-devel
     fi
-    easy_install -U setuptools
+    sudo easy_install -U setuptools
     sudo easy_install pip
     sudo easy_install mako
     sudo pip install pycrypto
