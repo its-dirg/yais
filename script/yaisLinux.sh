@@ -187,10 +187,10 @@ then
         wget http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.19.tar.gz
         gunzip -c xmlsec1-1.2.19.tar.gz | tar xvf -
         cd xmlsec1-1.2.19
-        ./configure
-        make
-        make install
-        make check
+        sudo ./configure
+        sudo make
+        sudo make install
+        sudo make check
         cd ..
     fi
     echo "pysaml2 installed"
