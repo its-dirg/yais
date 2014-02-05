@@ -76,8 +76,10 @@ then
     fi
     if [ $os = "redhat" ]
     then
-        yum install python-setuptools
-        yum install python-devel
+        yum -y install python-setuptools
+        yum -y install python-devel
+        pip install pycrypto
+        pip install cherrypy
     fi
     easy_install -U setuptools
     sudo easy_install pip
@@ -122,8 +124,8 @@ then
     fi
     if [ $os = "redhat" ]
     then
-        sudo yum install swig
-        sudo yum install m2crypto
+        sudo yum -y install swig
+        sudo yum -y install m2crypto
     fi
 
     pyoidcPath="$basePath/pyoidc"
@@ -169,13 +171,14 @@ then
     fi
     if [ $os = "redhat" ]
     then
-        sudo yum install python-dateutil pyOpenSSL
-        sudo yum install libxml2
+        sudo yum -y install libtool-ltdl-devel
+        sudo yum -y install libxml2 libxml2-devel libxslt libxslt-devel
+        sudo yum -y install python-dateutil pyOpenSSL openssl openssl-devel
+        sudo yum -y install libxml2
         wget http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.19.tar.gz
         gunzip -c xmlsec1-1.2.19.tar.gz | tar xvf -
         cd xmlsec1-1.2.19
-        ./configure --help
-        ./configure [possible options]
+        ./configure
         make
         make install
         make check
