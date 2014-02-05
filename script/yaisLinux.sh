@@ -57,6 +57,7 @@ then
         INSTALLBASE="Y"
     fi
 fi
+echo $INSTALLPYSAML2
 if [ $INSTALLPYSAML2 = "n" ]
 then
     echo "Do you want to install pysaml2 (Y/n):"
