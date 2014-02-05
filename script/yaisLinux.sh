@@ -78,12 +78,12 @@ then
     then
         yum -y install python-setuptools
         yum -y install python-devel
-        pip install pycrypto
-        pip install cherrypy
     fi
     easy_install -U setuptools
     sudo easy_install pip
     sudo easy_install mako
+    sudo pip install pycrypto
+    sudo pip install cherrypy
     ############################################################
     echo "______________________________________________________"
     echo "Installing pyjwkest..."
