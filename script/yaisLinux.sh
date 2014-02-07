@@ -217,6 +217,7 @@ echo "______________________________________________________"
 if [ $INSTALLDIRGWEB = "Y" ]
 then
     echo "Installing dirg-web..."
+    sudo easy_install Beaker
     dirgwebPath="$basePath/dirg-web"
     sudo rm -fr $dirgwebPath
     git clone https://github.com/its-dirg/dirg-web $dirgwebPath
