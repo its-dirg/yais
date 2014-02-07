@@ -9,7 +9,7 @@ INSTALLPYSAML2="n"
 INSTALLSAML2TEST="n"
 INSTALLDIRGWEB="n"
 INSTALLBASE="n"
-if [$1 = "-h"]
+if [ $1 = "-h" ]
 then
     echo "usage: yaisLinux.sh install_path [os(mac | debian)]"
 fi
@@ -21,9 +21,9 @@ fi
 
 os="debian"
 
-#if [ "$2" == "mac" ] || [ "$2" == "debian" ] ; then
-#    os=$2
-#fi
+if [ $2 == "mac" ] || [ $2 == "debian" ] ; then
+    os=$2
+fi
 
 basePath=$1
 echo "Do you want to install IdPproxy (Y/n):"
