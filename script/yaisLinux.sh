@@ -21,7 +21,7 @@ fi
 
 os="debian"
 
-if [ $2 == "mac" ] || [ $2 == "debian" ] ; then
+if [ $2 = "mac" ] || [ $2 = "debian" ] ; then
     os=$2
 fi
 
