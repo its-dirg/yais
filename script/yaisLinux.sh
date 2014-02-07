@@ -21,9 +21,9 @@ fi
 
 os="debian"
 
-if [ "$2" == "mac" ] || [ "$2" == "debian" ] ; then
-    os=$2
-fi
+#if [ "$2" == "mac" ] || [ "$2" == "debian" ] ; then
+#    os=$2
+#fi
 
 basePath=$1
 echo "Do you want to install IdPproxy (Y/n):"
