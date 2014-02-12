@@ -9,7 +9,7 @@ INSTALLPYSAML2="n"
 INSTALLSAML2TEST="n"
 INSTALLDIRGWEB="n"
 INSTALLBASE="n"
-if [$1 = "-h"]
+if [ $1 = "-h" ]
 then
     echo "usage: yaisLinux.sh install_path [os(mac | debian)]"
 fi
@@ -21,7 +21,7 @@ fi
 
 os="debian"
 
-if [ "$2" == "mac" ] || [ "$2" == "debian" ] ; then
+if [ $2 = "mac" ] || [ $2 = "debian" ] ; then
     os=$2
 fi
 
@@ -217,6 +217,7 @@ echo "______________________________________________________"
 if [ $INSTALLDIRGWEB = "Y" ]
 then
     echo "Installing dirg-web..."
+    sudo easy_install Beaker
     dirgwebPath="$basePath/dirg-web"
     sudo rm -fr $dirgwebPath
     git clone https://github.com/its-dirg/dirg-web $dirgwebPath
