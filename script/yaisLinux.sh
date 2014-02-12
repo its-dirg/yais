@@ -42,7 +42,7 @@ then
     INSTALLBASE="Y"
 fi
 echo "Do you want to install saml2test (Y/n):"
-read INSTALLSAML2TESTY
+read INSTALLSAML2TEST
 if [ $INSTALLSAML2TEST = "Y" ]
 then
     INSTALLPYSAML2="Y"
