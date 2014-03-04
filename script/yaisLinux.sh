@@ -150,7 +150,8 @@ then
     pysaml2Path="$basePath/pysaml2"
     echo " into the $path $pysaml2Path"
     sudo rm -fr $pysaml2Path
-    git clone https://github.com/rohe/pysaml2 $pysaml2Path
+    git clone https://github.com/HaToHo/pysaml2 $pysaml2Path
+    #git clone https://github.com/rohe/pysaml2 $pysaml2Path
     cd $pysaml2Path
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
@@ -239,6 +240,7 @@ echo "______________________________________________________"
 if [ $VERIFYENTCAT = "Y" ]
 then
     echo "Installing verify_entcat..."
+    sudo apt-get remove --auto-remove python-crypto
     sudo pip uninstall pycrypto
     cd $basePath
     wget https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.6.1.tar.gz
