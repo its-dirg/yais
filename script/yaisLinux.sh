@@ -34,9 +34,9 @@ then
     INSTALLPYSAML2="Y"
     INSTALLBASE="Y"
 fi
-echo "Do you want to install verify_encat (Y/n):"
-read VERIFYENCAT
-if [ $VERIFYENCAT = "Y" ]
+echo "Do you want to install verify_entcat (Y/n):"
+read VERIFYENTCAT
+if [ $VERIFYENTCAT = "Y" ]
 then
     INSTALLPYSAML2="Y"
     INSTALLBASE="Y"
@@ -236,17 +236,17 @@ else
 fi
 ############################################################
 echo "______________________________________________________"
-if [ $VERIFYENCAT = "Y" ]
+if [ $VERIFYENTCAT = "Y" ]
 then
-    echo "Installing verify_encat..."
-    dirgve="$basePath/verify_encat"
+    echo "Installing verify_entcat..."
+    dirgve="$basePath/verify_entcat"
     sudo rm -fr $dirgve
-    git clone https://github.com/its-dirg/verify_encat $dirgve
+    git clone https://github.com/its-dirg/verify_entcat $dirgve
     cd $dirgve
     sudo python setup.py install > /dev/null 2> /dev/null
-    echo "verify_encat installed"
+    echo "verify_entcat installed"
 else
-    echo "Skipping verify_encat."
+    echo "Skipping verify_entcat."
 fi
 ############################################################
 if [ $INSTALLPYSAML2 = "Y" ]
