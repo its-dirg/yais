@@ -34,6 +34,13 @@ then
     INSTALLPYSAML2="Y"
     INSTALLBASE="Y"
 fi
+echo "Do you want to install verify_encat (Y/n):"
+read VERIFYENCAT
+if [ $VERIFYENCAT = "Y" ]
+then
+    INSTALLPYSAML2="Y"
+    INSTALLBASE="Y"
+fi
 echo "Do you want to install dirg-web (Y/n):"
 read INSTALLDIRGWEB
 if [ $INSTALLDIRGWEB = "Y" ]
@@ -226,6 +233,20 @@ then
     echo "dirg-web installed"
 else
     echo "Skipping dirg-web."
+fi
+############################################################
+echo "______________________________________________________"
+if [ $VERIFYENCAT = "Y" ]
+then
+    echo "Installing verify_encat..."
+    dirgve="$basePath/verify_encat"
+    sudo rm -fr $dirgve
+    git clone https://github.com/its-dirg/verify_encat $dirgve
+    cd $dirgve
+    sudo python setup.py install > /dev/null 2> /dev/null
+    echo "verify_encat installed"
+else
+    echo "Skipping verify_encat."
 fi
 ############################################################
 if [ $INSTALLPYSAML2 = "Y" ]
