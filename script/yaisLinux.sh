@@ -239,6 +239,13 @@ echo "______________________________________________________"
 if [ $VERIFYENTCAT = "Y" ]
 then
     echo "Installing verify_entcat..."
+    sudo pip uninstall pycrypto
+    https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.6.1.tar.gz
+    cd $basePath
+    tar -zxvf pycrypto-2.6.1.tar.gz
+    cd "/$basePath/pycrypto-2.6.1"
+    sudo python setup.py install > /dev/null 2> /dev/null
+    rm pycrypto-2.6.1.tar.gz
     dirgve="$basePath/verify_entcat"
     sudo rm -fr $dirgve
     git clone https://github.com/its-dirg/verify_entcat $dirgve
