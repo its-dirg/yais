@@ -240,7 +240,7 @@ if [ $VERIFYENTCAT = "Y" ]
 then
     echo "Installing verify_entcat..."
     sudo pip uninstall pycrypto
-    https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.6.1.tar.gz
+    wget https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.6.1.tar.gz
     cd $basePath
     tar -zxvf pycrypto-2.6.1.tar.gz
     cd "/$basePath/pycrypto-2.6.1"
