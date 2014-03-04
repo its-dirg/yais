@@ -147,6 +147,18 @@ echo "______________________________________________________"
 if [ $INSTALLPYSAML2 = "Y" ]
 then
     echo "Installing pysaml2"
+    if [ $os = "debian" ]
+    then
+        sudo apt-get remove --auto-remove python-crypto
+        sudo pip uninstall pycrypto
+        cd $basePath
+        wget https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.6.1.tar.gz
+        tar -zxvf pycrypto-2.6.1.tar.gz
+        cd "$basePath/pycrypto-2.6.1"
+        sudo python setup.py install > /dev/null 2> /dev/null
+        cd ..
+        rm pycrypto-2.6.1.tar.gz
+    fi
     pysaml2Path="$basePath/pysaml2"
     echo " into the $path $pysaml2Path"
     sudo rm -fr $pysaml2Path
@@ -240,15 +252,6 @@ echo "______________________________________________________"
 if [ $VERIFYENTCAT = "Y" ]
 then
     echo "Installing verify_entcat..."
-    sudo apt-get remove --auto-remove python-crypto
-    sudo pip uninstall pycrypto
-    cd $basePath
-    wget https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.6.1.tar.gz
-    tar -zxvf pycrypto-2.6.1.tar.gz
-    cd "$basePath/pycrypto-2.6.1"
-    sudo python setup.py install > /dev/null 2> /dev/null
-    cd ..
-    rm pycrypto-2.6.1.tar.gz
     dirgve="$basePath/verify_entcat"
     sudo rm -fr $dirgve
     git clone https://github.com/its-dirg/verify_entcat $dirgve
