@@ -26,9 +26,17 @@ if [ $2 = "mac" ] || [ $2 = "debian" ] ; then
 fi
 
 basePath=$1
-echo "Do you want to install IdPproxy (Y/n):"
-read INSTALLIDPPROXY
-if [ $INSTALLIDPPROXY = "Y" ]
+echo "Do you want to install IdProxy (Y/n):"
+read INSTALLIDPROXY
+if [ $INSTALLIDPROXY = "Y" ]
+then
+    INSTALLPYOIDC="Y"
+    INSTALLPYSAML2="Y"
+    INSTALLBASE="Y"
+fi
+echo "Do you want to install Social2Saml (Y/n):"
+read SOCIAL2SAML
+if [ $SOCIAL2SAML = "Y" ]
 then
     INSTALLPYOIDC="Y"
     INSTALLPYSAML2="Y"
@@ -81,6 +89,8 @@ then
         sudo apt-get install python-setuptools
         sudo apt-get install python-dev
     fi
+    wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python
+    rm ez_setup.py
     sudo easy_install -U setuptools
     sudo easy_install pip
     sudo easy_install mako
@@ -149,6 +159,7 @@ then
     echo "Installing pysaml2"
     if [ $os = "debian" ]
     then
+        apt-get install python-openssl
         sudo apt-get remove --auto-remove python-crypto
         sudo pip uninstall pycrypto
         cd $basePath
@@ -213,9 +224,9 @@ else
 fi
 ############################################################
 echo "______________________________________________________"
-if [ $INSTALLIDPPROXY = "Y" ]
+if [ $SOCIAL2SAML = "Y" ]
 then
-    echo "Installing IdPproxy..."
+    echo "Installing Social2SAML..."
     oauthPath="$basePath/python-oauth2"
     sudo rm -fr $oauthPath
     git clone https://github.com/simplegeo/python-oauth2 $oauthPath
@@ -228,9 +239,9 @@ then
     cd $IdPproxyPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
-    echo "IdPproxy installed"
+    echo "Social2SAML installed"
 else
-    echo "Skipping IdPproxy."
+    echo "Skipping Social2SAML."
 fi
 ############################################################
 echo "______________________________________________________"
@@ -260,6 +271,20 @@ then
     echo "verify_entcat installed"
 else
     echo "Skipping verify_entcat."
+fi
+############################################################
+echo "______________________________________________________"
+if [ $INSTALLIDPROXY = "Y" ]
+then
+    echo "Installing IdProxy..."
+    IdProxyPath="$basePath/IdProxy"
+    sudo rm -fr $dirgve
+    git clone https://github.com/its-dirg/IdProxy $IdProxyPath
+    cd $IdProxyPath
+    sudo python setup.py install > /dev/null 2> /dev/null
+    echo "IdProxy installed"
+else
+    echo "Skipping IdProxy."
 fi
 ############################################################
 if [ $INSTALLPYSAML2 = "Y" ]
