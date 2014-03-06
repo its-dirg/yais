@@ -90,7 +90,6 @@ then
         sudo apt-get install python-dev
     fi
     wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python
-    rm ez_setup.py
     sudo easy_install -U setuptools
     sudo easy_install pip
     sudo easy_install mako
