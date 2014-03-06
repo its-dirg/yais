@@ -173,7 +173,7 @@ then
     pysaml2Path="$basePath/pysaml2"
     echo " into the $path $pysaml2Path"
     sudo rm -fr $pysaml2Path
-    git clone https://github.com/HaToHo/pysaml2 $pysaml2Path
+    git clone https://github.com/rohe/pysaml2 $pysaml2Path
     #git clone https://github.com/rohe/pysaml2 $pysaml2Path
     cd $pysaml2Path
     echo "Running setup.py (this can take a while)."
