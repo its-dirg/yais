@@ -18,7 +18,7 @@ Yais (yet another install script) is a project which aims to make it easier to s
 
 .. raw:: html
 
-    <a href="https://github.com/its-dirg/IdProxy" class="github" target="_blank">
+    <a href="https://github.com/its-dirg/yais" class="github" target="_blank">
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="_static/ViewmeonGitHub.png" alt="View me on GitHub"  class="github"/>
     </a>
 
