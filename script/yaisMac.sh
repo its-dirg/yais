@@ -4,11 +4,12 @@
 #yum must be installed för RedHat
 #apt-get must be installed för debian
 
+#NOTE! This is under construction. It doesn't work yet
+
 INSTALLPYOIDC="n"
 INSTALLPYSAML2="n"
 INSTALLSAML2TEST="n"
 INSTALLDIRGWEB="n"
-INSTALLOICTEST="n"
 INSTALLBASE="n"
 if [ $1 = "-h" ]
 then
@@ -19,12 +20,6 @@ if [ ! -d "$1" ]; then
   echo "usage: yaisLinux.sh install_path [group]"
   exit
 fi
-
-os="debian"
-
-#if [ $2 = "mac" ] || [ $2 = "debian" ] ; then
-#    os=$2
-#fi
 
 basePath=$1
 echo "Do you want to install IdProxy (Y/n):"
@@ -83,18 +78,6 @@ then
         INSTALLBASE="Y"
     fi
 fi
-
-echo $INSTALLOICTEST
-if [ $INSTALLOICTEST = "n" ]
-then
-    echo "Do you want to install oictest (Y/n):"
-    read INSTALLOICTEST
-    if [ $INSTALLOICTEST = "Y" ]
-    then
-        INSTALLBASE="Y"
-    fi
-fi
-
 if [ $INSTALLBASE = "Y" ]
 then
     if [ $os = "debian" ]
@@ -134,18 +117,9 @@ fi
 echo "______________________________________________________"
 if [ $INSTALLPYOIDC = "Y" ]
 then
-    echo "Installing pyoidc..."
-    if [ $os = "debian" ]
-    then
-        sudo apt-get install swig
-        sudo apt-get install python-m2crypto
-        installM2CryptoLinux.sh
-    fi
-    if [ $os = "mac" ]
-    then
-        brew install swig
-        sudo easy_install M2Crypto
-    fi
+
+    brew install swig
+    sudo easy_install M2Crypto
 
     pyoidcPath="$basePath/pyoidc"
     sudo rm -fr $pyoidcPath
@@ -153,13 +127,9 @@ then
     cd $pyoidcPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
-    if [ $os = "debian" ]
-    then
-        sudo apt-get install python-ldap
-    else
-        sudo pip install python-ldap
-    fi
+
     sudo pip install python-ldap
+
     echo "pyoidc installed"
 else
     echo "Skipping pyoidc."
@@ -192,16 +162,9 @@ then
     sudo python setup.py install > /dev/null 2> /dev/null
     sudo easy_install repoze.who
     sudo easy_install ElementTree
-    if [ $os = "debian" ]
-    then
-        sudo apt-get install python-dateutil libxmlsec1 xmlsec1 libxmlsec1-openssl libxmlsec1-dev
-        sudo apt-get install libxml2
-        sudo apt-get install libtool
-    fi
-    if [ $os = "mac" ]
-    then
-        brew install libxmlsec1
-    fi
+
+    brew install libxmlsec1
+
     echo "pysaml2 installed"
 else
     echo "Skipping pysaml2."
@@ -290,27 +253,13 @@ if [ $INSTALLIDPROXY = "Y" ]
 then
     echo "Installing IdProxy..."
     IdProxyPath="$basePath/IdProxy"
-    sudo rm -fr $IdProxyPath
+    sudo rm -fr $dirgve
     git clone https://github.com/its-dirg/IdProxy $IdProxyPath
     cd $IdProxyPath
     sudo python setup.py install > /dev/null 2> /dev/null
     echo "IdProxy installed"
 else
     echo "Skipping IdProxy."
-fi
-############################################################
-echo "______________________________________________________"
-if [ $INSTALLOICTEST = "Y" ]
-then
-    echo "Installing oictest..."
-    oictestPath="$basePath/oictest"
-    sudo rm -fr $oictestPath
-    git clone https://github.com/rohe/oictest oictestPath
-    cd $oictestPath
-    sudo python setup.py install > /dev/null 2> /dev/null
-    echo "oictest installed"
-else
-    echo "Skipping oictest."
 fi
 ############################################################
 if [ $INSTALLPYSAML2 = "Y" ]
