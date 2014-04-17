@@ -10,6 +10,8 @@ INSTALLSAML2TEST="n"
 INSTALLDIRGWEB="n"
 INSTALLOICTEST="n"
 INSTALLBASE="n"
+INSTALLOICTESTGUI="n"
+
 if [ $1 = "-h" ]
 then
     echo "usage: yaisLinux.sh install_path [os(mac | debian)]"
@@ -91,6 +93,18 @@ then
     read INSTALLOICTEST
     if [ $INSTALLOICTEST = "Y" ]
     then
+        INSTALLBASE="Y"
+    fi
+fi
+
+echo $INSTALLOICTESTGUI
+if [ $INSTALLOICTESTGUI = "n" ]
+then
+    echo "Do you want to install oictestGui (Y/n):"
+    read INSTALLOICTESTGUI
+    if [ $INSTALLOICTESTGUI = "Y" ]
+    then
+        INSTALLOICTEST="Y"
         INSTALLBASE="Y"
     fi
 fi
@@ -311,6 +325,20 @@ then
     echo "oictest installed"
 else
     echo "Skipping oictest."
+fi
+############################################################
+echo "______________________________________________________"
+if [ $INSTALLOICTEST = "Y" ]
+then
+    echo "Installing oictestGui..."
+    oictestGuiPath="$basePath/oictestGui"
+    sudo rm -fr $oictestGuiPath
+    git clone https://github.com/rohe/oictest $oictestGuiPath
+    cd $oictestGuiPath
+    sudo python setup.py install > /dev/null 2> /dev/null
+    echo "oictestGui installed"
+else
+    echo "Skipping oictestGui."
 fi
 ############################################################
 if [ $INSTALLPYSAML2 = "Y" ]
