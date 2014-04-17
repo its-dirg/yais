@@ -305,7 +305,7 @@ then
     echo "Installing oictest..."
     oictestPath="$basePath/oictest"
     sudo rm -fr $oictestPath
-    git clone https://github.com/rohe/oictest oictestPath
+    git clone https://github.com/rohe/oictest $oictestPath
     cd $oictestPath
     sudo python setup.py install > /dev/null 2> /dev/null
     echo "oictest installed"
