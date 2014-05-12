@@ -14,7 +14,7 @@ echo "Do you want to configure an test IdP and SP? (Y/n):"
 read CONFIGUREIDPSP
 if [ $CONFIGUREIDPSP = "Y" ]
 then
-  sudo easy_install pyopenssl
+  sudo pip install pyOpenSSL==0.13.1
   idpConfFile="$pysaml2Path/example/idp2/idp_conf.py"
   idpMetadataFile="$pysaml2Path/example/idp2/idp_conf.xml"
   spConfFile="$pysaml2Path/example/sp/sp_conf.py"

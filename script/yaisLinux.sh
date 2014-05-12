@@ -158,7 +158,8 @@ then
     echo "Installing pysaml2"
     if [ $os = "debian" ]
     then
-        apt-get install python-openssl
+        #apt-get install python-openssl
+        sudo pip install pyOpenSSL==0.13.1
         sudo apt-get remove --auto-remove python-crypto
         sudo pip uninstall pycrypto
         cd $basePath
@@ -276,8 +277,14 @@ echo "______________________________________________________"
 if [ $INSTALLIDPROXY = "Y" ]
 then
     echo "Installing IdProxy..."
+    pyYubitoolPath="$basePath/pyYubitool"
+    sudo rm -fr $pyYubitoolPath
+    git clone https://github.com/HaToHo/pyYubitool $pyYubitoolPath
+    cd $pyYubitoolPath
+    sudo python setup.py install > /dev/null 2> /dev/null
+
     IdProxyPath="$basePath/IdProxy"
-    sudo rm -fr $dirgve
+    sudo rm -fr $IdProxyPath
     git clone https://github.com/its-dirg/IdProxy $IdProxyPath
     cd $IdProxyPath
     sudo python setup.py install > /dev/null 2> /dev/null
