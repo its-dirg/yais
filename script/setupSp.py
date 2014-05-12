@@ -16,7 +16,7 @@ __author__ = 'haho0032'
 
 
 if __name__ == '__main__':
-    SP_PATH = "/pysaml2/example/sp"
+    SP_PATH = "/pysaml2/example/sp-repoze"
     template_file = "/usr/yais/templates/sp/sp_conf.template"
 
 
