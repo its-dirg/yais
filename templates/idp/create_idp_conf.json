@@ -8,8 +8,12 @@
                                         "value": "/usr/local/bin/xmlsec1"
                                     },
                                     {
-                                        "id": "SERVER",
-                                        "value": "http://localhost:8088"
+                                        "id": "PORT",
+                                        "value": "8087"
+                                    },
+                                    {
+                                        "id": "HOST",
+                                        "value": "localhost"
                                     },
                                     {
                                         "id": "ENTITYID",

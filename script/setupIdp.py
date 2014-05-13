@@ -54,7 +54,8 @@ if __name__ == '__main__':
 
     templateCreator = TemplateCreator()
 
-    conf = templateCreator.addReplace(conf, "SERVER", "http://" + host + ":" + str(port))
+    conf = templateCreator.addReplace(conf, "HOST", host)
+    conf = templateCreator.addReplace(conf, "PORT", str(port))
     conf = templateCreator.addReplace(conf, "KEYFILE", key_file)
     conf = templateCreator.addReplace(conf, "CERTFILE", cert_file)
     conf = templateCreator.addReplace(conf, "ENTITYID", entityid)

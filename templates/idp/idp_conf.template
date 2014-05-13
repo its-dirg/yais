@@ -18,7 +18,10 @@ if get_xmlsec_binary:
 else:
     xmlsec_path = '<LOCALPATHTOXMLSEC>'
 
-BASE = "<SERVER>"
+HOST = "<HOST>"
+PORT = "<PORT>"
+
+BASE = "http://%s:%s" % (HOST, PORT)
 
 CONFIG = {
     "entityid": "%s/<ENTITYID>.xml" % BASE,

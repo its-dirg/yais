@@ -58,7 +58,8 @@ if __name__ == '__main__':
 
     templateCreator = TemplateCreator()
 
-    conf = templateCreator.addReplace(conf, "BASE", "http://" + host + ":" + str(port))
+    conf = templateCreator.addReplace(conf, "HOST", host)
+    conf = templateCreator.addReplace(conf, "PORT", str(port))
     conf = templateCreator.addReplace(conf, "ENTITYID", spName)
     conf = templateCreator.addReplace(conf, "DESCRIPTION", description)
     conf = templateCreator.addReplace(conf, "NAME", spName)
