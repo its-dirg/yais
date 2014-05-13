@@ -49,6 +49,8 @@ CONFIG = {
 </ATTRIBUTEQUERYSERVICE>
         "idp": {
             "name": "<ENTITYID>",
+            "sign_response": True,
+            "sign_assertion": True,
             "endpoints": {
 <SINGLESIGNONSERVICE>
                 "single_sign_on_service": [
