@@ -122,6 +122,13 @@ then
     sudo easy_install mako
     sudo pip install pycrypto
     sudo pip install cherrypy
+    if [ $os = "debian" ]
+    then
+        sudo apt-get install python-ldap
+    else
+        sudo pip install python-ldap
+    fi
+    sudo pip install python-ldap
     ############################################################
     echo "______________________________________________________"
     echo "Installing pyjwkest..."
@@ -167,13 +174,6 @@ then
     cd $pyoidcPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
-    if [ $os = "debian" ]
-    then
-        sudo apt-get install python-ldap
-    else
-        sudo pip install python-ldap
-    fi
-    sudo pip install python-ldap
     echo "pyoidc installed"
 else
     echo "Skipping pyoidc."
