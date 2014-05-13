@@ -19,7 +19,7 @@ else:
     xmlsec_path = '<LOCALPATHTOXMLSEC>'
 
 HOST = "<HOST>"
-PORT = "<PORT>"
+PORT = <PORT>
 
 BASE = "http://%s:%s" % (HOST, PORT)
 
