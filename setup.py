@@ -14,6 +14,8 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules"],
     install_requires = [],
     scripts=["script/configureSaml.sh",
+             "script/certgeneration.py",
+             "script/create_test_cert.sh",
              "script/create_key.sh",
              "script/installM2CryptoLinux.sh",
              "script/restartIdp.sh",
