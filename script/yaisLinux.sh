@@ -150,6 +150,11 @@ then
     cd $dirgutilPath
     sudo python setup.py install > /dev/null 2> /dev/null
     echo "dirg-util installed"
+    sudo apt-get install libffi-dev
+    #apt-get install python-openssl
+    sudo pip install pyOpenSSL==0.13.1
+    sudo pip install argparse
+    sudo pip install importlib
 fi
 ############################################################
 echo "______________________________________________________"
@@ -185,8 +190,6 @@ then
     echo "Installing pysaml2"
     if [ $os = "debian" ]
     then
-        #apt-get install python-openssl
-        sudo pip install pyOpenSSL==0.13.1
         sudo apt-get remove --auto-remove python-crypto
         sudo pip uninstall pycrypto
         cd $basePath
