@@ -121,7 +121,7 @@ then
     sudo easy_install pip
     sudo easy_install mako
     sudo pip install pycrypto
-    sudo pip install cherrypy
+    sudo pip install cherrypy==3.2.4
     if [ $os = "debian" ]
     then
         sudo apt-get install python-ldap
@@ -173,9 +173,11 @@ then
         sudo easy_install M2Crypto
     fi
 
+    sudo pip install pyOpenSSL
+
     pyoidcPath="$basePath/pyoidc"
     sudo rm -fr $pyoidcPath
-    git clone https://github.com/rohe/pyoidc $pyoidcPath
+    git clone https://github.com/dv10den/pyoidc $pyoidcPath
     cd $pyoidcPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
