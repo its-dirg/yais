@@ -48,3 +48,13 @@ if [ -d "$1/dirg-web" ]; then
     git pull origin master
     sudo python setup.py install
 fi
+if [ -d "$1/oictest" ]; then
+    cd "$1/oictest"
+    git pull origin master
+    sudo python setup.py install
+fi
+if [ -d "$1/oictestGui" ]; then
+    cd "$1/oictestGui"
+    git pull origin master
+    sudo python setup.py install
+fi
