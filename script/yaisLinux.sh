@@ -113,6 +113,7 @@ if [ $INSTALLBASE = "Y" ]
 then
     if [ $os = "debian" ]
     then
+        sudo apt-get update
         sudo apt-get install python-setuptools
         sudo apt-get install python-dev
     fi
