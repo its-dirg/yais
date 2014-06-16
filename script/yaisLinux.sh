@@ -348,7 +348,7 @@ then
     echo "Installing oictestGui..."
     oictestGuiPath="$basePath/oictestGui"
     sudo rm -fr $oictestGuiPath
-    git clone https://github.com/rohe/oictest $oictestGuiPath
+    git clone https://github.com/its-dirg/oictestGui $oictestGuiPath
     cd $oictestGuiPath
     sudo python setup.py install > /dev/null 2> /dev/null
     echo "oictestGui installed"
