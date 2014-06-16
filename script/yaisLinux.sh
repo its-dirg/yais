@@ -86,17 +86,6 @@ then
     fi
 fi
 
-echo $INSTALLOICTEST
-if [ $INSTALLOICTEST = "n" ]
-then
-    echo "Do you want to install oictest (Y/n):"
-    read INSTALLOICTEST
-    if [ $INSTALLOICTEST = "Y" ]
-    then
-        INSTALLBASE="Y"
-    fi
-fi
-
 echo $INSTALLOICTESTGUI
 if [ $INSTALLOICTESTGUI = "n" ]
 then
@@ -104,7 +93,20 @@ then
     read INSTALLOICTESTGUI
     if [ $INSTALLOICTESTGUI = "Y" ]
     then
+        INSTALLPYOIDC="Y"
         INSTALLOICTEST="Y"
+        INSTALLBASE="Y"
+    fi
+fi
+
+echo $INSTALLOICTEST
+if [ $INSTALLOICTEST = "n" ]
+then
+    echo "Do you want to install oictest (Y/n):"
+    read INSTALLOICTEST
+    if [ $INSTALLOICTEST = "Y" ]
+    then
+        INSTALLPYOIDC="Y"
         INSTALLBASE="Y"
     fi
 fi
