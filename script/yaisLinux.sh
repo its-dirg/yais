@@ -180,7 +180,7 @@ then
 
     pyoidcPath="$basePath/pyoidc"
     sudo rm -fr $pyoidcPath
-    git clone https://github.com/dv10den/pyoidc $pyoidcPath
+    git clone https://github.com/rohe/pyoidc $pyoidcPath
     cd $pyoidcPath
     echo "Running setup.py (this can take a while)."
     sudo python setup.py install > /dev/null 2> /dev/null
