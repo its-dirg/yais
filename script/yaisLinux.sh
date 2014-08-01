@@ -72,6 +72,7 @@ then
     read INSTALLPYOIDC
     if [ $INSTALLPYOIDC = "Y" ]
     then
+        INSTALLPYSAML2="Y"
         INSTALLBASE="Y"
     fi
 fi
