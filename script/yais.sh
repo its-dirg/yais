@@ -1,7 +1,7 @@
 #!/bin/sh
-#gcc, wget and git must be installed
-#brew must be installed on mac
 #apt-get must be installed on debian
+#gcc, wget and git must be installed (will be installed on debian)
+#brew must be installed on mac (will be installed on mac together with wget)
 
 INSTALLPYOIDC="n"
 INSTALLPYSAML2="n"
@@ -127,6 +127,16 @@ if [ "${INSTALLOICTEST}" = "n" ]; then
 fi
 
 ################################### INSTALLATIONS ###################################
+
+# necessary programs before any installation
+if [ "${os}" = "debian" ]; then
+        sudo apt-get -y install git gcc wget
+    elif [ "${os}" = "mac" ]; then
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew doctor
+        brew install wget
+    fi
+
 if [ "${INSTALLBASE}" = "Y" ]; then
     if [ "${os}" = "debian" ]; then
         sudo apt-get update
