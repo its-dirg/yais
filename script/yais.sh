@@ -260,7 +260,7 @@ fi
 
 echo "______________________________________________________"
 if [ "${INSTALLOICTEST}" = "Y" ]; then
-    installFromGitHub "oictest" "https://github.com/rohe/oictest"
+    installFromGitHub "oictest" "https://github.com/its-dirg/oictest"
 else
     echo "Skipping oictest."
 fi
