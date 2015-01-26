@@ -181,6 +181,8 @@ if [ "${INSTALLPYOIDC}" = "Y" ]; then
         sudo apt-get -y install swig
         sudo apt-get -y install python-m2crypto
         ./installM2CryptoLinux.sh
+        sudo apt-get -y install libldap2-dev
+        sudo apt-get -y install libsasl2-dev
     elif [ "${os}" = "mac" ]; then
         brew install swig
         sudo pip install M2Crypto
