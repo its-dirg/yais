@@ -11,7 +11,7 @@ INSTALLOICTEST="n"
 INSTALLBASE="n"
 INSTALLOICTESTGUI="n"
 
-USAGE_STRING="usage: yaisLinux.sh install_path"
+USAGE_STRING="usage: yais.sh install_path"
 
 if [ "$1" = "-h" ]; then
     echo ${USAGE_STRING}
@@ -262,7 +262,7 @@ fi
 
 echo "______________________________________________________"
 if [ "${INSTALLOICTEST}" = "Y" ]; then
-    installFromGitHub "oictest" "https://github.com/its-dirg/oictest"
+    installFromGitHub "oictest" "https://github.com/rohe/oictest"
 else
     echo "Skipping oictest."
 fi
